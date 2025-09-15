@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{99e363b2-7d9d-4bd6-b85b-ca41be841ba0}">
+		<property name="assetPath">
+			<value>Battle Won.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>7.0602040816326532</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{57fe5e1d-acf2-45db-b5a1-6aeb15469a0d}</destination>
+		</relationship>
+	</object>
+</objects>
