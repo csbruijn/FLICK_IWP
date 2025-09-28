@@ -119,6 +119,86 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &9347134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4978683812252376599, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
+  m_PrefabInstance: {fileID: 96606554}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9471c74990fdd4abe2bffddf57c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DrumsController
+--- !u!1001 &96606554
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 704401037072539174, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9347134}
+    - target: {fileID: 704401037072539174, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDrumPlayed
+      objectReference: {fileID: 0}
+    - target: {fileID: 704401037072539174, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DrumsController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7666994311197084196, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
+      propertyPath: m_Name
+      value: Drums Animated
+      objectReference: {fileID: 0}
+    - target: {fileID: 7851111130548534558, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7851111130548534558, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 7851111130548534558, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 7851111130548534558, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7851111130548534558, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7851111130548534558, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7851111130548534558, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7851111130548534558, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7851111130548534558, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7851111130548534558, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2339e7ddea734f74b9705de63b9addac, type: 3}
 --- !u!1 &358447589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,11 +1151,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1113389422243251421, guid: 6c6087a4e855876469cc7ed888ee52c3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -9
+      value: -174
       objectReference: {fileID: 0}
     - target: {fileID: 1113389422243251421, guid: 6c6087a4e855876469cc7ed888ee52c3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 160
+      value: 307
       objectReference: {fileID: 0}
     - target: {fileID: 1113389422243251421, guid: 6c6087a4e855876469cc7ed888ee52c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1212,11 +1292,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8255838380160655596, guid: 1c9df3bf3d6f5ec488338383f9eb025e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -83
+      value: -591
       objectReference: {fileID: 0}
     - target: {fileID: 8255838380160655596, guid: 1c9df3bf3d6f5ec488338383f9eb025e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -66.7
+      value: -256
       objectReference: {fileID: 0}
     - target: {fileID: 8255838380160655596, guid: 1c9df3bf3d6f5ec488338383f9eb025e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1307,7 +1387,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3742721486997092313, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
       propertyPath: m_Name
-      value: Drums
+      value: Drums Simple
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742721486997092313, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3846861406792892643, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1369,5 +1453,6 @@ SceneRoots:
   - {fileID: 1801710061}
   - {fileID: 801755803}
   - {fileID: 1547682938}
+  - {fileID: 96606554}
   - {fileID: 8701814230834249211}
   - {fileID: 8507000126253482756}

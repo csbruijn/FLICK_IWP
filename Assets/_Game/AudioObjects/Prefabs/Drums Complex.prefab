@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6455474558441438717
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 981500953410763635, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      propertyPath: m_Name
+      value: Stick Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742721486997092313, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      propertyPath: m_Name
+      value: Drums Complex
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846861406792892643, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846861406792892643, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846861406792892643, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846861406792892643, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846861406792892643, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846861406792892643, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846861406792892643, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846861406792892643, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846861406792892643, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846861406792892643, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119165024518065365, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      propertyPath: m_Name
+      value: Stick Left
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3742721486997092313, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4978683812252376599}
+    - targetCorrespondingSourceObject: {fileID: 5119165024518065365, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4421676097517795304}
+    - targetCorrespondingSourceObject: {fileID: 981500953410763635, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3813812785781403184}
+  m_SourcePrefab: {fileID: 100100000, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+--- !u!1 &2205812323937546536 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5119165024518065365, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+  m_PrefabInstance: {fileID: 6455474558441438717}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4421676097517795304
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205812323937546536}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9dc3716a40f43e44bd4a0d87d8ad50b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &6055245839091648142 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 981500953410763635, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+  m_PrefabInstance: {fileID: 6455474558441438717}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3813812785781403184
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055245839091648142}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9dc3716a40f43e44bd4a0d87d8ad50b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &7666994311197084196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3742721486997092313, guid: 99b26bab5ddc3934fb2b90dc379debdf, type: 3}
+  m_PrefabInstance: {fileID: 6455474558441438717}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4978683812252376599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7666994311197084196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9471c74990fdd4abe2bffddf57c934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DrumsController
