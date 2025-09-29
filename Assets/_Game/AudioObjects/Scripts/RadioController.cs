@@ -1,36 +1,47 @@
 using FMODUnity;
 using FMOD.Studio;
 using UnityEngine;
-using static RadioView;
+using static FmodTesting.RadioView;
 using UnityEngine.Rendering;
 
-public class RadioController : MonoBehaviour
+namespace FmodTesting
 {
-    private StudioEventEmitter emitter;
 
-    void Awake()
+
+    public class RadioController : MonoBehaviour
     {
-        emitter = GetComponent<StudioEventEmitter>();
+        private StudioEventEmitter emitter;
+
+        void Awake()
+        {
+            emitter = GetComponent<StudioEventEmitter>();
+        }
+
+        public void SetParameter(Component sender, System.Object values)
+        {
+            if (values is not RadioData)
+            {
+                Debug.LogError($"ChangeCubeColour received invalid type: {values?.GetType().Name ?? "null"}");
+                return;
+            }
+
+            RadioData radioData = (RadioData)values;
+            Debug.Log($"recieved out F{radioData.freq} + V{radioData.vol}");
+
+            emitter.SetParameter("Radio Volume", radioData.vol);
+            emitter.SetParameter("Radio Frequency", radioData.freq);
+        }
     }
 
-    public void SetParameter(Component sender, System.Object values)
+    public struct RadioData
     {
-        RadioData radioData = (RadioData)values;
-        Debug.Log($"recieved out F{radioData.freq} + V{radioData.vol}");
+        public float freq;
+        public float vol;
 
-        emitter.SetParameter("Radio Volume", radioData.vol);
-        emitter.SetParameter("Radio Frequency", radioData.freq);
-    }
-}
-
-public struct RadioData
-{
-    public float freq;
-    public float vol;
-
-    public RadioData(float F, float V)
-    {
-        this.freq = F;
-        this.vol = V;
+        public RadioData(float F, float V)
+        {
+            this.freq = F;
+            this.vol = V;
+        }
     }
 }

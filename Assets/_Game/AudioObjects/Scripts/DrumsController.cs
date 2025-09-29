@@ -2,42 +2,44 @@ using FMODUnity;
 using Unity.VisualScripting;
 using UnityEditor.Animations;
 using UnityEngine;
-
-public class DrumsController : MonoBehaviour
+namespace FmodTesting
 {
-    
-    private StudioEventEmitter studioEventEmitter; 
-
-    private Animator[] StickAnimators;
-    
-    void Awake()
+    public class DrumsController : MonoBehaviour
     {
-        studioEventEmitter = GetComponent<StudioEventEmitter>();
-        StickAnimators = GetComponentsInChildren<Animator>();
-        Debug.Log(StickAnimators.Length);
-    }
 
-    public void OnDrumPlayed()
-    {
-        Animator Stick = StickAnimators[0];
+        private StudioEventEmitter studioEventEmitter;
 
+        private Animator[] StickAnimators;
 
-        if (Stick.GetCurrentAnimatorStateInfo(0).IsName("Resting"))
+        void Awake()
         {
-            Stick.SetTrigger("Drum");
-            studioEventEmitter.Play();
+            studioEventEmitter = GetComponent<StudioEventEmitter>();
+            StickAnimators = GetComponentsInChildren<Animator>();
+            Debug.Log(StickAnimators.Length);
         }
-        else
+
+        public void OnDrumPlayed()
         {
-            Stick = StickAnimators[1];
+            Animator Stick = StickAnimators[0];
+
 
             if (Stick.GetCurrentAnimatorStateInfo(0).IsName("Resting"))
             {
                 Stick.SetTrigger("Drum");
-
                 studioEventEmitter.Play();
             }
+            else
+            {
+                Stick = StickAnimators[1];
+
+                if (Stick.GetCurrentAnimatorStateInfo(0).IsName("Resting"))
+                {
+                    Stick.SetTrigger("Drum");
+
+                    studioEventEmitter.Play();
+                }
+            }
         }
+
     }
-    
 }

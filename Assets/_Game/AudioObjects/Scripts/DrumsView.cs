@@ -1,5 +1,6 @@
 using UnityEngine;
-
+namespace FmodTesting
+{
 public class DrumsView : MonoBehaviour
 {
     public GameEvent OnDrumsPlayed;
@@ -9,4 +10,5 @@ public class DrumsView : MonoBehaviour
         OnDrumsPlayed.Raise(this, null);
         Debug.Log("Play the drums");
     }
+}
 }
