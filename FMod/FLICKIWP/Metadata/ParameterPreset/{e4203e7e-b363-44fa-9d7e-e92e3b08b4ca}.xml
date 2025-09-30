@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{e4203e7e-b363-44fa-9d7e-e92e3b08b4ca}">
+		<property name="name">
+			<value>Radio Frequency</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a3a544b9-a0ec-4d3e-9931-816617bb5ac1}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{ed7d64a0-ff1e-41db-b8fa-2ac68ce8b164}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{ed7d64a0-ff1e-41db-b8fa-2ac68ce8b164}">
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
