@@ -73,7 +73,6 @@ public class KeyBoardPlatform : MonoBehaviour
 
     void NoteOff(MidiChannel channel, int note)
     {
-        Debug.Log("NoteOff: " + channel + "," + note);
     }
 
     void OnEnable()

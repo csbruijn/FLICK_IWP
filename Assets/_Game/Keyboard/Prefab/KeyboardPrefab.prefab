@@ -322,6 +322,7 @@ MonoBehaviour:
   restPos: 0
   jumpSpeed: 5
   lowerSpeed: 1
+  launchSpeed: 10
   keyReachedApex: {fileID: 11400000, guid: 0d73088d8492a52449d207b35666f316, type: 2}
 --- !u!65 &1502372051378823558
 BoxCollider:
