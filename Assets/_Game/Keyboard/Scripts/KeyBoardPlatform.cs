@@ -7,16 +7,21 @@ public class KeyBoardPlatform : MonoBehaviour
     [SerializeField] int myNote;
 
     Material myMaterial;
+    Rigidbody myRigidbody;
 
     [SerializeField] float maxHeight, restPos;
     bool jumpUp = false;
     bool lower = false;
 
-    [SerializeField] float jumpSpeed, lowerSpeed; 
+    [SerializeField] float jumpSpeed =5f, lowerSpeed =1f , launchSpeed= 10f;
+
+    public GameEvent keyReachedApex; 
 
     private void Awake()
-    {
+    {            
+        myRigidbody = GetComponent<Rigidbody>();
         myMaterial = GetComponentInChildren<Renderer>().material;
+
         restPos = transform.position.z;
         myMaterial.color = Color.green;
 
@@ -28,12 +33,12 @@ public class KeyBoardPlatform : MonoBehaviour
         if (jumpUp)
         {
             pos.y += jumpSpeed * Time.fixedDeltaTime;
-
             if (pos.y >= maxHeight)
             {
                 pos.y = maxHeight;
                 jumpUp = false;
                 lower = true;
+                keyReachedApex.Raise(this, launchSpeed);
             }
         }
         if (lower)
@@ -47,9 +52,10 @@ public class KeyBoardPlatform : MonoBehaviour
                 myMaterial.color = Color.green;
             }
         }
+        myRigidbody.MovePosition(pos);
 
-        transform.position = pos;
     }
+
 
     void ActivatePlatform()
     {
