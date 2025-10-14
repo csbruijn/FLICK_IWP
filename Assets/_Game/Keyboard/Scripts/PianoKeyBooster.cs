@@ -1,4 +1,5 @@
 using MidiJack;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.WSA;
 
@@ -27,10 +28,18 @@ public class PianoKeyBooster : MonoBehaviour
 
     void ActivateBooster()
     {
+        StopAllCoroutines();
         mSP.color = Color.lightGreen; 
 
         myGravityWell.gameObject.SetActive( true );
     }
+
+    private IEnumerator WaitAndDisable(float Waittime)
+    {
+        yield return new WaitForSeconds(Waittime);
+        DisableBooster();
+    }
+
     private void DisableBooster()
     {
         mSP.color = myColor;
@@ -39,7 +48,7 @@ public class PianoKeyBooster : MonoBehaviour
 
     void NoteOff(MidiChannel channel, int note)
     {
-        DisableBooster();
+        StartCoroutine(WaitAndDisable(.6f));
     }
 
     void NoteOn(MidiChannel channel, int note, float velocity)
