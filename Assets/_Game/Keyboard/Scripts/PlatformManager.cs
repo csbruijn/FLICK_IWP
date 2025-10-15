@@ -13,7 +13,7 @@ public class PlatformManager : MonoBehaviour
 
     
     
-    float spawnX = 11,spawnYmin =0 , spawnYmax =14;   
+    float spawnX = 15,spawnYmin =0 , spawnYmax =14;   
     
     public void InstantiatePlatform(Component sender, object data)
     {

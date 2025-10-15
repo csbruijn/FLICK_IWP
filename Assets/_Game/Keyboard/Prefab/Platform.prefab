@@ -151,4 +151,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScrollerPlatform
   OnPlatformEnd: {fileID: 11400000, guid: 3d39791df521c6549b73ff3606f68135, type: 2}
-  xMinBorder: -10
+  xMinBorder: -14
+  platformSpeed: 0.07
