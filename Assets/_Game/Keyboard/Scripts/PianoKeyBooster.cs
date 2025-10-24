@@ -1,7 +1,6 @@
 using MidiJack;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.WSA;
 
 public class PianoKeyBooster : MonoBehaviour
 {
