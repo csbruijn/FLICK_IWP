@@ -352,6 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0030fe34ff985e419d9d9b2b7c3ff94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveNote
+  OnNotePickedUp: {fileID: 11400000, guid: 3586fcae62b373a4a9239b38572365a8, type: 2}
 --- !u!1 &7985107084073742090
 GameObject:
   m_ObjectHideFlags: 0

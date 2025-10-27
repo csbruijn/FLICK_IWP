@@ -10,6 +10,8 @@ public class ObjectiveNote : MonoBehaviour
     private float startYPos;
     private float bounceSpeed = 3;
 
+    [SerializeField] GameEvent OnNotePickedUp;
+
     private void Start()
     {
         startYPos = transform.position.y; 
@@ -17,7 +19,7 @@ public class ObjectiveNote : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-         
+        OnNotePickedUp.Raise(this, null);  
         Destroy(this.gameObject);
     }
 

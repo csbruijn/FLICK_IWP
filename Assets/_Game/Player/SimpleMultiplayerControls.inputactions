@@ -48,6 +48,17 @@
                 },
                 {
                     "name": "",
+                    "id": "cec54d5d-86ad-43ca-8ddb-ae497af52efe",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "05f6913d-c316-48b2-a6bb-e225f14c7960",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -83,6 +94,17 @@
                     "name": "",
                     "id": "3fcd1d51-36db-4ae9-aa05-ac93af8e3e87",
                     "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3eb07426-1b07-4acd-a7c9-75e0e7ea69a2",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
