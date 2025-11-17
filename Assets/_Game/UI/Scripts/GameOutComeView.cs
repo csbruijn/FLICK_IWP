@@ -30,7 +30,7 @@ public class GameOutComeView : MonoBehaviour
 
         if (outcome != null)
         {
-            outcomeName.text = "You are: " + outcome.myName;
+            outcomeName.text = "Congratulations, you're " + outcome.myName + "!";
             outcomeDescr.text = outcome.myDescription;
             outcomeImage.sprite = outcome.mySprite;
         }

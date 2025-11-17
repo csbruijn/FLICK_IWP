@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d75238216f0110443bc0c4584a805f93, type: 3}
   m_Name: Percussion
   m_EditorClassIdentifier: Assembly-CSharp::Outcomes
-  mySprite: {fileID: 0}
+  mySprite: {fileID: 21300000, guid: f6f8c12f37d09bc4abcef0ca6e86fb0e, type: 3}
   OutcomeRef: 1
-  myName: Percussion section
-  myDescription: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-    dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-    sunt in culpa qui officia deserunt mollit anim id est laborum
+  myName: percussion
+  myDescription: "Your energy is the most chaotically entertaining one known to humanity.
+    The soul of every group, you are the person that agrees to an adventure before
+    there is any plan and somehow comes out victorious. You bring zest and vitality
+    wherever you go, keeping everyone on their toes. Others might find themselves
+    relying on you in unexpected situations. When the moment matters, your timing
+    is flawless, as if you kept track of everything all this time (you did and made
+    it look effortless). You\u2019re spontaneous, lively, and impossible not to smile
+    around. Others might plan ahead, but you? You feel when the moment is right,
+    and you nail it every time."
