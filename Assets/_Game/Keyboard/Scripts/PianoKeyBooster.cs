@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class PianoKeyBooster : MonoBehaviour
 {
-
     [SerializeField] MidiChannel myChannel;
     [SerializeField] int myNote;
-
 
     private GravityWell myGravityWell;
     [SerializeField] float BoostStrength = 8f; 
 
     [SerializeField] Color myColor = Color.white;
 
-    private SpriteRenderer mSP; 
+    private SpriteRenderer mSP;
+
+    [SerializeField]private float ActiveDelay = .5f, extraTime =.3f;
+
+    private float ActiveTime = 0f;
+
+    private bool noteIsOn = false;
+    private bool boosterIsActive;
 
     private void Awake()
     {
@@ -25,40 +30,74 @@ public class PianoKeyBooster : MonoBehaviour
         myGravityWell.gameObject.SetActive(false);
     }
 
-    void ActivateBooster()
+    private void Update()
     {
-        StopAllCoroutines();
-        mSP.color = Color.lightGreen; 
+        if (noteIsOn)
+        {
+            if (ActiveTime == 0f) ActiveTime += ActiveDelay+extraTime; 
+            ActiveTime += Time.deltaTime;
+        }
 
-        myGravityWell.gameObject.SetActive( true );
-    }
+        if (ActiveTime > 0) ActiveTime -= Time.deltaTime;
 
-    private IEnumerator WaitAndDisable(float Waittime)
-    {
-        yield return new WaitForSeconds(Waittime);
-        DisableBooster();
-    }
-
-    private void DisableBooster()
-    {
-        mSP.color = myColor;
-        myGravityWell.gameObject.SetActive(false);
+        if (ActiveTime <= 0)
+        {
+            DisableBooster();
+            ActiveTime = 0; 
+        }
     }
 
     void NoteOff(MidiChannel channel, int note)
     {
-        StartCoroutine(WaitAndDisable(.6f));
+        if (note == myNote)
+        {
+            if (myGravityWell.isActiveAndEnabled) DeacivateIndicator();
+            //if (ActiveTime < 0.5f) ActiveTime = .5f; 
+            noteIsOn = false;
+        }
     }
 
     void NoteOn(MidiChannel channel, int note, float velocity)
     {
         if (note == myNote)
         {
-            ActivateBooster();
+            /*if (ActiveTime <= 0) */ActivateIndicator();
+
+            Debug.Log($"{note} is pressed ");
+            noteIsOn = true;
+            StartCoroutine(DelayedActivation());
         }
     }
 
-    
+
+
+    private IEnumerator DelayedActivation()
+    {
+        yield return new WaitForSeconds(ActiveDelay);
+        ActivateBooster();
+    }
+
+
+    private void ActivateBooster()
+    {
+        DeacivateIndicator();
+        myGravityWell.gameObject.SetActive(true);
+    }
+
+    private void DisableBooster()
+    {
+        myGravityWell.gameObject.SetActive(false);
+    }
+    private void ActivateIndicator()
+    {
+         mSP.color = Color.lightGreen;
+    }
+
+    private void DeacivateIndicator()
+    {
+        mSP.color = myColor;
+
+    }
 
     void OnEnable()
     {
