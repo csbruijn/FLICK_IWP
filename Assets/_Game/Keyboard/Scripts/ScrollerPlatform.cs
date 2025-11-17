@@ -12,8 +12,7 @@ public class ScrollerPlatform : MonoBehaviour
 
     private void Start()
     {
-        if (!LevelManager.instance.GameStarted)  DisablePlatforms(); 
-        else EnablePlatforms();
+        EnablePlatforms();
     }
 
     private void FixedUpdate()
@@ -40,12 +39,6 @@ public class ScrollerPlatform : MonoBehaviour
     {
         StartCoroutine(TempDisablePlatforms(1f));
     }
-
-    public void OnGameStarted(Component sender, object data)
-    {
-        EnablePlatforms();
-    }
-
 
     private IEnumerator TempDisablePlatforms(float timeToWait)
     {

@@ -12,6 +12,8 @@ public class ObjectiveNote : MonoBehaviour
 
     [SerializeField] GameEvent OnNotePickedUp;
 
+    [SerializeField]private GameOutcome myOutcome;
+
     private void Start()
     {
         startYPos = transform.position.y; 
@@ -19,7 +21,7 @@ public class ObjectiveNote : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        OnNotePickedUp.Raise(this, null);  
+        OnNotePickedUp.Raise(this, myOutcome);  
         Destroy(this.gameObject);
     }
 

@@ -1,10 +1,12 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UpOnStageManager;
 
-public class LevelManager : MonoBehaviour
+public class UpOnStageManager : MonoBehaviour
 {
-    public static LevelManager instance { get; private set; }
+    public static UpOnStageManager instance { get; private set; }
 
     public bool GameStarted { get; private set; } = false;
     public bool GameOver { get; private set; } = false; 
@@ -12,11 +14,13 @@ public class LevelManager : MonoBehaviour
     public int NotesCollected { get; private set; }
     private int NotesToCollect; 
 
-    public float TimeToCompleteLevel { get; private set; } = 120;
+     public float TimeToCompleteLevel  = 120;
 
-    private float Remainingtime;
+    public  float Remainingtime { get; private set; }
 
     [SerializeField] private GameEvent OnCountdownChanged, OnGameOVer;
+
+    bool outcomeSet = false;
 
 
     private void Awake()
@@ -27,13 +31,14 @@ public class LevelManager : MonoBehaviour
         NotesToCollect = FindObjectsByType<ObjectiveNote>(FindObjectsSortMode.None).Length;
     }
 
-    public void OnGameStarted(Component sender, System.Object data)
-    { 
-        GameStarted = true; 
+    private void Start()
+    {
+        GameStarted = true;
 
         Remainingtime = TimeToCompleteLevel;
         StartCoroutine(Countdown());
     }
+
 
     private IEnumerator Countdown()
     {
@@ -49,6 +54,10 @@ public class LevelManager : MonoBehaviour
 
     public void NoteCollected(Component sender, System.Object data)
     {
+        GameOutcome outcome = (GameOutcome)data;  
+        
+        SetOutcome(outcome); 
+
         NotesCollected++; 
         if (NotesCollected >= NotesToCollect)
         {
@@ -69,4 +78,22 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void SetOutcome(GameOutcome outcome)
+    {
+        if (outcomeSet) return;
+
+        LevelsManager.instance.playData.outcome = outcome;
+        outcomeSet = true;
+
+    }    
+}
+
+public enum GameOutcome
+{
+    Conductor,
+    Percussion,
+    Brass,
+    Woodwinds,
+    strings
 }
