@@ -68,6 +68,7 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
                 jumpInput = false;
+                // add jump audio here
             }
         }
         else
