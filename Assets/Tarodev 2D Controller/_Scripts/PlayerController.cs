@@ -186,6 +186,7 @@ namespace TarodevController
             _coyoteUsable = false;
             _frameVelocity.y = _stats.JumpPower;
             Jumped?.Invoke();
+            // add sound here
         }
 
         #endregion
