@@ -49,24 +49,29 @@ public class PianoKeyBooster : MonoBehaviour
 
     void NoteOff(MidiChannel channel, int note)
     {
-        if (note == myNote)
-        {
-            if (myGravityWell.isActiveAndEnabled) DeacivateIndicator();
-            //if (ActiveTime < 0.5f) ActiveTime = .5f; 
-            noteIsOn = false;
-        }
+        if (channel != myChannel) return;
+
+        if (note != myNote) return;
+        
+        if (myGravityWell.isActiveAndEnabled) DeacivateIndicator();
+        //if (ActiveTime < 0.5f) ActiveTime = .5f; 
+        noteIsOn = false;
+        
     }
 
     void NoteOn(MidiChannel channel, int note, float velocity)
     {
-        if (note == myNote)
-        {
-            /*if (ActiveTime <= 0) */ActivateIndicator();
+        if (channel != myChannel) return;
 
-            Debug.Log($"{note} is pressed ");
-            noteIsOn = true;
-            StartCoroutine(DelayedActivation());
-        }
+        if (note != myNote) return;
+        
+        /*if (ActiveTime <= 0) */
+        ActivateIndicator();
+
+        Debug.Log($"{note} is pressed ");
+        noteIsOn = true;
+        StartCoroutine(DelayedActivation());
+        
     }
 
 
