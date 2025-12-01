@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using FMODUnity;
 
 public class ObjectiveNote : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class ObjectiveNote : MonoBehaviour
 
     [SerializeField]private GameOutcome myOutcome;
 
+    [SerializeField] private EventReference pickUpEvent;
+
     private void Start()
     {
         startYPos = transform.position.y; 
@@ -23,6 +26,8 @@ public class ObjectiveNote : MonoBehaviour
     {
         OnNotePickedUp.Raise(this, myOutcome);  
         Destroy(this.gameObject);
+
+
     }
 
     void Update()
