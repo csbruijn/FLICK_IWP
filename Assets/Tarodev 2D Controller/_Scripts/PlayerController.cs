@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMODUnity; 
 
 namespace TarodevController
 {
@@ -26,6 +27,8 @@ namespace TarodevController
         public Vector2 FrameInput => _frameInput.Move;
         public event Action<bool, float> GroundedChanged;
         public event Action Jumped;
+
+        [SerializeField] private EventReference jumpEvent;
 
         #endregion
 
@@ -56,6 +59,8 @@ namespace TarodevController
         public void OnJump(InputAction.CallbackContext context)
         {
             if(context.started) jumpInput = true;
+
+            Debug.Log("Jump");
 
         }
         public void OnMove(InputAction.CallbackContext context)
@@ -186,7 +191,7 @@ namespace TarodevController
             _coyoteUsable = false;
             _frameVelocity.y = _stats.JumpPower;
             Jumped?.Invoke();
-            // add sound here
+            RuntimeManager.PlayOneShot(jumpEvent, transform.position);
         }
 
         #endregion
