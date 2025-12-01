@@ -24,9 +24,10 @@ public class ObjectiveNote : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        OnNotePickedUp.Raise(this, myOutcome);  
+        OnNotePickedUp.Raise(this, myOutcome);
+        RuntimeManager.PlayOneShot(pickUpEvent, transform.position);
         Destroy(this.gameObject);
-
+        
 
     }
 
