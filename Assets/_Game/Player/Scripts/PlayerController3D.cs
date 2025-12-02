@@ -1,22 +1,15 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TarodevController;
 
-namespace TarodevController
-{
-    /// <summary>
-    /// Hey!
-    /// Tarodev here. I built this controller as there was a severe lack of quality & free 2D controllers out there.
-    /// I have a premium version on Patreon, which has every feature you'd expect from a polished controller. Link: https://www.patreon.com/tarodev
-    /// You can play and compete for best times here: https://tarodev.itch.io/extended-ultimate-2d-controller
-    /// If you hve any questions or would like to brag about your score, come to discord: https://discord.gg/tarodev
     /// </summary>
-    [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
+    [RequireComponent(typeof(Rigidbody), typeof(CapsuleCollider))]
     public class PlayerController3D : MonoBehaviour, IPlayerController
     {
         [SerializeField] private ScriptableStats _stats;
-        private Rigidbody2D _rb;
-        private CapsuleCollider2D _col;
+        private Rigidbody _rb;
+        private CapsuleCollider _col;
         private FrameInput _frameInput;
         private Vector2 _frameVelocity;
         private bool _cachedQueryStartInColliders;
@@ -33,8 +26,8 @@ namespace TarodevController
 
         private void Awake()
         {
-            _rb = GetComponent<Rigidbody2D>();
-            _col = GetComponent<CapsuleCollider2D>();
+            _rb = GetComponent<Rigidbody>();
+            _col = GetComponent<CapsuleCollider>();
 
             _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
         }
@@ -51,11 +44,11 @@ namespace TarodevController
         }
 
         private bool jumpInput;
-        private Vector2 moveInput; 
+        private Vector2 moveInput;
 
         public void OnJump(InputAction.CallbackContext context)
         {
-            if(context.started) jumpInput = true;
+            if (context.started) jumpInput = true;
 
         }
         public void OnMove(InputAction.CallbackContext context)
@@ -92,12 +85,12 @@ namespace TarodevController
             HandleJump();
             HandleDirection();
             HandleGravity();
-            
+
             ApplyMovement();
         }
 
         #region Collisions
-        
+
         private float _frameLeftGrounded = float.MinValue;
         private bool _grounded;
 
@@ -105,31 +98,51 @@ namespace TarodevController
         {
             Physics2D.queriesStartInColliders = false;
 
-            // Ground and Ceiling
-            //bool groundHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.down, _stats.GrounderDistance, ~_stats.PlayerLayer);
+        // Compute capsule endpoints
+        Vector3 center = _col.bounds.center;
+        float height = _col.height;
+        float radius = _col.radius;
 
-            
-            bool groundHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.down, _stats.GrounderDistance, ~_stats.PlayerLayer);
-            
-            if(groundHit)
-            {//Quicky for testing not for performance
-                RaycastHit2D hit = Physics2D.CapsuleCast(
-                    _col.bounds.center,
-                    _col.size,
-                    _col.direction,
-                    0f,
-                    Vector2.down,
-                    _stats.GrounderDistance,
-                    ~_stats.PlayerLayer
-                );
-                ScrollerPlatform platform = hit.collider.GetComponent<ScrollerPlatform>();
-                    if (platform != null) { transform.SetParent(hit.transform); }
-            }
+        Vector3 point1 = center + Vector3.up * (height / 2f - radius);
+        Vector3 point2 = center + Vector3.down * (height / 2f - radius);
 
-            bool ceilingHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance, ~_stats.PlayerLayer);
+        // --- GROUND CHECK ---
+        RaycastHit groundInfo;
+        bool groundHit = Physics.CapsuleCast(
+            point1,
+            point2,
+            radius,
+            Vector3.down,
+            out groundInfo,
+            _stats.GrounderDistance,
+            ~_stats.PlayerLayer
+        );
 
-            // Hit a Ceiling
-            if (ceilingHit) _frameVelocity.y = Mathf.Min(0, _frameVelocity.y);
+        if (groundHit)
+        {
+            // Detect moving platform in 3D
+            ScrollerPlatform platform = groundInfo.collider.GetComponent<ScrollerPlatform>();
+            if (platform != null)
+                transform.SetParent(groundInfo.collider.transform);
+            else
+                transform.SetParent(null);
+        }
+
+        // --- CEILING CHECK ---
+        RaycastHit ceilingInfo;
+        bool ceilingHit = Physics.CapsuleCast(
+            point1,
+            point2,
+            radius,
+            Vector3.up,
+            out ceilingInfo,
+            _stats.GrounderDistance,
+            ~_stats.PlayerLayer
+        );
+
+
+        // Hit a Ceiling
+        if (ceilingHit) _frameVelocity.y = Mathf.Min(0, _frameVelocity.y);
 
             // Landed on the Ground
             if (!_grounded && groundHit)
@@ -147,7 +160,7 @@ namespace TarodevController
                 _frameLeftGrounded = _time;
                 GroundedChanged?.Invoke(false, 0);
 
-                transform.SetParent(null); 
+                transform.SetParent(null);
             }
 
             Physics2D.queriesStartInColliders = _cachedQueryStartInColliders;
@@ -257,4 +270,3 @@ namespace TarodevController
         public event Action Jumped;
         public Vector2 FrameInput { get; }
     }
-}
