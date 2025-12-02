@@ -1,0 +1,15 @@
+Loopmidi: SaxToMidi
+
+Run these:
+
+pip install numpy sounddevice aubio mido python-rtmidi
+
+
+If you’re on Windows, also install:
+
+pip install pipwin
+pipwin install sounddevice
+
+
+(That fixes PortAudio issues on Windows.)
+
