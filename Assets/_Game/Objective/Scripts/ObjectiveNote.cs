@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using FMODUnity;
 
 public class ObjectiveNote : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class ObjectiveNote : MonoBehaviour
 
     [SerializeField]private GameOutcome myOutcome;
 
+    [SerializeField] private EventReference pickUpEvent;
+
     private void Start()
     {
         startYPos = transform.position.y; 
@@ -21,8 +24,11 @@ public class ObjectiveNote : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        OnNotePickedUp.Raise(this, myOutcome);  
+        OnNotePickedUp.Raise(this, myOutcome);
+        RuntimeManager.PlayOneShot(pickUpEvent, transform.position);
         Destroy(this.gameObject);
+        
+
     }
 
     void Update()

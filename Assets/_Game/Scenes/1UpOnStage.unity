@@ -254,6 +254,26 @@ PrefabInstance:
       propertyPath: myOutcome
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Path
+      value: event:/Note Pick Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data1
+      value: -1037686431
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data2
+      value: 1250184155
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data3
+      value: -217289830
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data4
+      value: 1862025735
+      objectReference: {fileID: 0}
     - target: {fileID: 4097610522181923401, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
       propertyPath: m_Name
       value: Note (3)
@@ -2203,6 +2223,26 @@ PrefabInstance:
       propertyPath: myOutcome
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Path
+      value: event:/Note Pick Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data1
+      value: -1037686431
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data2
+      value: 1250184155
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data3
+      value: -217289830
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data4
+      value: 1862025735
+      objectReference: {fileID: 0}
     - target: {fileID: 4097610522181923401, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
       propertyPath: m_Name
       value: Note (1)
@@ -2213,7 +2253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6056619173446566521, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.13
+      value: 11.86
       objectReference: {fileID: 0}
     - target: {fileID: 6056619173446566521, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2566,6 +2606,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1544650614272011792, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
+      propertyPath: jumpEvent.Path
+      value: event:/Jump Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544650614272011792, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
+      propertyPath: jumpEvent.Guid.Data1
+      value: 1841788286
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544650614272011792, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
+      propertyPath: jumpEvent.Guid.Data2
+      value: 1281847998
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544650614272011792, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
+      propertyPath: jumpEvent.Guid.Data3
+      value: 758624162
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544650614272011792, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
+      propertyPath: jumpEvent.Guid.Data4
+      value: -2077623579
+      objectReference: {fileID: 0}
     - target: {fileID: 1544650614272011795, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2609,6 +2669,10 @@ PrefabInstance:
     - target: {fileID: 1544650614272011804, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
       propertyPath: m_Name
       value: Player Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544650614272011804, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4320,6 +4384,26 @@ PrefabInstance:
       propertyPath: myOutcome
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Path
+      value: event:/Note Pick Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data1
+      value: -1037686431
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data2
+      value: 1250184155
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data3
+      value: -217289830
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data4
+      value: 1862025735
+      objectReference: {fileID: 0}
     - target: {fileID: 4097610522181923401, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
       propertyPath: m_Name
       value: Note (2)
@@ -5218,6 +5302,26 @@ PrefabInstance:
     - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
       propertyPath: myOutcome
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Path
+      value: event:/Note Pick Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data1
+      value: -1037686431
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data2
+      value: 1250184155
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data3
+      value: -217289830
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
+      propertyPath: pickUpEvent.Guid.Data4
+      value: 1862025735
       objectReference: {fileID: 0}
     - target: {fileID: 4097610522181923401, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
       propertyPath: m_Name
