@@ -353,6 +353,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveNote
   OnNotePickedUp: {fileID: 11400000, guid: 3586fcae62b373a4a9239b38572365a8, type: 2}
+  myOutcome: 0
+  pickUpEvent:
+    Guid:
+      Data1: -1037686431
+      Data2: 1250184155
+      Data3: -217289830
+      Data4: 1862025735
+    Path: event:/Note Pick Up
 --- !u!1 &7985107084073742090
 GameObject:
   m_ObjectHideFlags: 0

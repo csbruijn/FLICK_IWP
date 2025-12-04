@@ -13,7 +13,7 @@ public class GravityWell : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        var player = collision.GetComponent<TarodevController.PlayerController3D>();
+        var player = collision.GetComponent<PlayerController>();
         if (player != null)
         {
             player.ApplyAirBoost(boostStrength);

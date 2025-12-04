@@ -1,4 +1,4 @@
-Loopmidi: SaxToMidi
+
 
 Run these:
 
@@ -10,6 +10,8 @@ If you’re on Windows, also install:
 pip install pipwin
 pipwin install sounddevice
 
-
 (That fixes PortAudio issues on Windows.)
 
+Loopmidi: SaxToMidi
+
+run SoundDeviceDetector.py

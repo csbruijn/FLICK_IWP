@@ -1,7 +1,5 @@
 using UnityEngine;
 
-namespace TarodevController
-{
     /// <summary>
     /// VERY primitive animator example.
     /// </summary>
@@ -140,4 +138,3 @@ namespace TarodevController
         private static readonly int IdleSpeedKey = Animator.StringToHash("IdleSpeed");
         private static readonly int JumpKey = Animator.StringToHash("Jump");
     }
-}

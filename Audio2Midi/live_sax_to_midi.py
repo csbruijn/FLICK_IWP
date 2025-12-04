@@ -17,7 +17,7 @@ STABLE_COUNT_FOR_ON = 3
 STABLE_COUNT_FOR_OFF = 2
 SMOOTHING_ALPHA = 0.3
 MIDI_CHANNEL = 1
-MIDI_OUT_NAME = "SaxToMidi 2"   # exact port name from loopMIDI
+MIDI_OUT_NAME = "SaxToMidi 1"   # exact port name from loopMIDI
 # ----------------------------
 
 def freq_to_midi(freq):
