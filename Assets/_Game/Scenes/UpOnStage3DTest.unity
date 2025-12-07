@@ -2869,8 +2869,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 717242972}
-        m_TargetAssemblyTypeName: PlayerHit, Assembly-CSharp
-        m_MethodName: FlashRed
+        m_TargetAssemblyTypeName: PlayerVisuals, Assembly-CSharp
+        m_MethodName: TurnRed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2893,8 +2893,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerVisuals
   spriteRenderer: {fileID: 2122685443}
-  hitColor: {r: 0.9685534, g: 0.59392416, b: 0.59392416, a: 1}
-  flashTime: 0.2
+  hitColor: {r: 0.8627452, g: 0.07843138, b: 0.2352941, a: 1}
+  redDuration: 2
 --- !u!4 &717292193 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4682492144124532052, guid: 4d2adf9c78b7ddd4f9fddbc11454d6a9, type: 3}

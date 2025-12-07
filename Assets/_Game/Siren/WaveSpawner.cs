@@ -25,7 +25,6 @@ public class WaveSpawner : MonoBehaviour
                 spawnPoint.position + offset,
                 Quaternion.identity
             );
-            wave.transform.SetParent(null); //its not parented to anything right?
 
             // movement functions in another script 
             WaveMover mover = wave.AddComponent<WaveMover>();

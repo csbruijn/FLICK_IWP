@@ -8,7 +8,7 @@ public class WaveMover : MonoBehaviour
 
     void Start()
     {
-        // Clean up after a while so they don’t pile up in the scene
+        // delete them later
         Destroy(gameObject, lifeTime);
     }
 
