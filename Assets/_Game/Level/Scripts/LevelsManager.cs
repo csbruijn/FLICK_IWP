@@ -39,7 +39,7 @@ public class LevelsManager : MonoBehaviour
     public void OnGameOver(Component sender, System.Object data)
     {
         playData.GameWon = (bool)data;
-        playData.timeToCompletion = sender.GetComponent<UpOnStageManager>().Remainingtime;
+        //playData.timeToCompletion = sender.GetComponent<Gamemanager>().Remainingtime;
         GetPostGame();
 
     }
