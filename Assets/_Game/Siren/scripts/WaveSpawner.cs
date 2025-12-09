@@ -15,7 +15,7 @@ public class WaveSpawner : MonoBehaviour
     public float waveSpeed = 2f;
     public float lifeTime = 5f;         //when they die (should be more natural)
 
-    // call this function from button/from whatever triggers the attack
+    // call this from button/from whatever triggers the attack
     public void SpawnWaveAttack()
     {
         for (int i = 0; i < waveCount; i++)
@@ -48,7 +48,7 @@ public class WaveSpawner : MonoBehaviour
 
 
             // movement functions in another script 
-            WaveMover mover = wave.AddComponent<WaveMover>();
+            WaveMoverUp mover = wave.AddComponent<WaveMoverUp>();
             mover.waveSpeed = waveSpeed;
             mover.lifeTime = lifeTime;
         }

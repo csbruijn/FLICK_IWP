@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 1544650614272011792}
   - component: {fileID: 1544650614272011793}
   - component: {fileID: 1544650614272011794}
+  - component: {fileID: 1273839046858610378}
+  - component: {fileID: 8761453675251878530}
   m_Layer: 6
   m_Name: Player Controller
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,6 +117,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 05e6a06c5af93134ab98ff12e2c27265, type: 2}
+  jumpEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!50 &1544650614272011793
 Rigidbody2D:
   serializedVersion: 5
@@ -179,6 +188,49 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.7}
   m_Size: {x: 0.9, y: 1.4}
   m_Direction: 0
+--- !u!114 &1273839046858610378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544650614272011804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6551b81e1b7ffaa4494cf3cd46150b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerVisuals
+  spriteRenderer: {fileID: 2969068313154050967}
+  hitColor: {r: 0, g: 0.12173247, b: 1, a: 1}
+  redDuration: 2
+--- !u!114 &8761453675251878530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544650614272011804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33af63db64899a4e9c782559f665080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
+  gameEvent: {fileID: 11400000, guid: 9ade48c046ee0a241af88054855741f4, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1273839046858610378}
+        m_TargetAssemblyTypeName: PlayerVisuals, Assembly-CSharp
+        m_MethodName: TurnRed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2969068311587289281
 GameObject:
   m_ObjectHideFlags: 0
