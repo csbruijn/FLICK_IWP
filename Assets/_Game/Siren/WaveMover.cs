@@ -15,7 +15,7 @@ public class WaveMover : MonoBehaviour
     private void FixedUpdate()
     {
 
-        // move the platform to the right
+        // move the wave to the right
 
         transform.position = new Vector3(transform.position.x + waveSpeed, transform.position.y, transform.position.z);
     }
