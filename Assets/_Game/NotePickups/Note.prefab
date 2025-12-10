@@ -69,7 +69,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0.12, y: 0.27}
-  m_Radius: 0.5
+  m_Radius: 0.39
 --- !u!114 &2850083881158299210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,11 +86,11 @@ MonoBehaviour:
   myOutcome: 0
   pickUpEvent:
     Guid:
-      Data1: -1037686431
-      Data2: 1250184155
-      Data3: -217289830
-      Data4: 1862025735
-    Path: event:/Note Pick Up
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &7867567556698370123
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +118,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.74, y: 2.45, z: 0}
-  m_LocalScale: {x: 0.64, y: 0.64, z: 0.64}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7543363309774672563}

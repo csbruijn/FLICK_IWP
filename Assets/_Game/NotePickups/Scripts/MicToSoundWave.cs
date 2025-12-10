@@ -4,6 +4,7 @@ using FMOD;
 using System;
 using System.Runtime.InteropServices;
 
+[RequireComponent(typeof (CoinSpawner))] 
 public class MicToSoundWave : MonoBehaviour
 {
     [Header("Microphone Settings")]
@@ -17,6 +18,7 @@ public class MicToSoundWave : MonoBehaviour
 
     [Header("References")]
     public Transform[] bars;
+    [SerializeField] private CoinSpawner coinSpawner;
 
     [Header("Settings")]
     public FrequencyFocusWindow frequencyFocusWindow = FrequencyFocusWindow.Entire;
@@ -29,6 +31,8 @@ public class MicToSoundWave : MonoBehaviour
 
     void Awake()
     {
+        
+
         spectrumData = new float[4096];
 
         // Auto detect microphone
@@ -42,10 +46,12 @@ public class MicToSoundWave : MonoBehaviour
 
         // Attach FFT DSP
         channelGroup.addDSP(0, fftDsp);
+
+        coinSpawner = GetComponent<CoinSpawner>();
+        coinSpawner.spawnPostions = bars;
     }
 
     // ----------------------------------------------------------------------
-
     private int AutoSelectMicrophone()
     {
         FMOD.System core = RuntimeManager.CoreSystem;
@@ -200,10 +206,12 @@ public class MicToSoundWave : MonoBehaviour
                 s.y = -Mathf.Log10(amplitude) * amplification / 200f;
             else
                 s.y = sum * amplification + baseHeight;
-
             bars[i].localScale = s;
+            coinSpawner.AddBarValue(i, sum);
         }
     }
+
+    public Transform[] GetBars() { return bars; }
 }
 
 // ----------------------------------------------------------------------
