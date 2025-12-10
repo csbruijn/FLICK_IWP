@@ -14,9 +14,11 @@ public class Gamemanager : MonoBehaviour
     public int NotesCollected { get; private set; }
     private int NotesToCollect;
 
-    public float scrollspeed { get; private set; } = 0.05f; 
+    public float scrollspeed { get; private set; } = 0.05f;
+    //public float scrolldist { get; private set; } = 0f;
 
-   
+
+
     [SerializeField] private GameEvent OnGameOVer;
 
     bool outcomeSet = false;
@@ -35,8 +37,14 @@ public class Gamemanager : MonoBehaviour
 
     }
 
+    //private void FixedUpdate()
+    //{
+    //    if (!GameStarted) return;
 
-   
+    //    scrolldist = Time.deltaTime * scrollspeed;
+    //}
+
+
 
     public void NoteCollected(Component sender, System.Object data)
     {
