@@ -86,11 +86,11 @@ MonoBehaviour:
   myOutcome: 0
   pickUpEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1037686431
+      Data2: 1250184155
+      Data3: -217289830
+      Data4: 1862025735
+    Path: event:/Note Pick Up Sound
 --- !u!1 &7867567556698370123
 GameObject:
   m_ObjectHideFlags: 0

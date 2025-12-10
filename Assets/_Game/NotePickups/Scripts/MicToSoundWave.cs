@@ -26,6 +26,8 @@ public class MicToSoundWave : MonoBehaviour
     public float baseHeight = 0.0f;
     public bool useDecibels = false;
 
+
+
     [Header("State")]
     public float[] spectrumData;
 
@@ -46,6 +48,8 @@ public class MicToSoundWave : MonoBehaviour
 
         // Attach FFT DSP
         channelGroup.addDSP(0, fftDsp);
+
+
 
         coinSpawner = GetComponent<CoinSpawner>();
         coinSpawner.spawnPostions = bars;
@@ -114,7 +118,7 @@ public class MicToSoundWave : MonoBehaviour
 
         UnityEngine.Debug.Log("Initializing mic: " + deviceName + " at index " + micDeviceIndex);
 
-        // Create sound buffer for microphone
+        // --- Step 1: Create sound buffer for microphone ---
         FMOD.CREATESOUNDEXINFO ex = new FMOD.CREATESOUNDEXINFO();
         ex.cbsize = Marshal.SizeOf(typeof(FMOD.CREATESOUNDEXINFO));
         ex.numchannels = channels;
@@ -134,19 +138,26 @@ public class MicToSoundWave : MonoBehaviour
             out micSound
         );
 
-        // Start recording
+        // --- Step 2: Create a dedicated channel group for the mic ---
+        core.createChannelGroup("MicChannelGroup", out channelGroup);
+
+        // --- Step 3: Start recording ---
         core.recordStart(micDeviceIndex, micSound, true);
 
-        // Play the incoming audio
+        // --- Step 4: Play the mic sound in its dedicated group ---
         core.playSound(
             micSound,
-            default(FMOD.ChannelGroup),
+            channelGroup,  // attach only to mic group
             false,
             out micChannel
         );
 
-        micChannel.getChannelGroup(out channelGroup);
+        // --- Step 5: Attach FFT DSP to the mic group ---
+        RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.FFT, out fftDsp);
+        fftDsp.setParameterInt((int)FMOD.DSP_FFT.WINDOWSIZE, 4096);
+        channelGroup.addDSP(0, fftDsp);
     }
+
 
 
     // ----------------------------------------------------------------------
