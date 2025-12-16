@@ -14,10 +14,13 @@ public class Gamemanager : MonoBehaviour
     public int NotesCollected { get; private set; }
     private int NotesToCollect;
 
-    public float scrollspeed { get; private set; } = 0.05f; 
+    [SerializeField] public float scrollspeed { get; private set; } = 0.05f;
+    public float scrolldist { get; private set; } = 0f;
+    public float interval { get; private set; } = 1;
+    [SerializeField] private int intervalDist = 1;
 
-   
-    [SerializeField] private GameEvent OnGameOVer;
+    [SerializeField] private GameEvent OnGameOver, OnInterValReached;
+
 
     bool outcomeSet = false;
 
@@ -35,8 +38,19 @@ public class Gamemanager : MonoBehaviour
 
     }
 
+    private void FixedUpdate()
+    {
+        if (!GameStarted) return;
 
-   
+        scrolldist += scrollspeed;
+        if (scrolldist> interval*intervalDist +1) 
+        {
+            interval += intervalDist; 
+            OnInterValReached.Raise(this, interval -1);
+        }
+    }
+
+
 
     public void NoteCollected(Component sender, System.Object data)
     {
@@ -47,7 +61,7 @@ public class Gamemanager : MonoBehaviour
     {
        GameOver = true;
         Debug.Log("game over");
-        OnGameOVer.Raise(this, false);
+        OnGameOver.Raise(this, false);
 
     }
 

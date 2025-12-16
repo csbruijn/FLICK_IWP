@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MovingFrame : MonoBehaviour
 {
-    [SerializeField] private float scrollSpeed;
+    private float scrollSpeed;
 
     private void Start()
     {
