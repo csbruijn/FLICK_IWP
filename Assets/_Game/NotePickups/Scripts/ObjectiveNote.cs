@@ -5,11 +5,11 @@ using FMODUnity;
 public class ObjectiveNote : MonoBehaviour
 {
     private float minimum = 0.1f;
-    private float maximum = 0.2f;
+    private float maximum = 0.5f;
 
     private float yPos;
     private float startYPos;
-    private float bounceSpeed = 2;
+    private float bounceSpeed = 3;
 
     [SerializeField] GameEvent OnNotePickedUp;
 

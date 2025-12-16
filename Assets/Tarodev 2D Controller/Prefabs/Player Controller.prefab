@@ -119,11 +119,11 @@ MonoBehaviour:
   _stats: {fileID: 11400000, guid: 05e6a06c5af93134ab98ff12e2c27265, type: 2}
   jumpEvent:
     Guid:
-      Data1: 1841788286
-      Data2: 1281847998
-      Data3: 758624162
-      Data4: -2077623579
-    Path: event:/Jump Sound
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!50 &1544650614272011793
 Rigidbody2D:
   serializedVersion: 5

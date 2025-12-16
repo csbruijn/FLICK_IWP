@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4151848066907466395}
   - component: {fileID: 8067685955773247350}
-  - component: {fileID: 2624169237223050865}
+  - component: {fileID: 4315882564553453953}
   m_Layer: 0
   m_Name: UpOnStageManager
   m_TagString: Untagged
@@ -49,7 +49,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4315882564553453953}
         m_TargetAssemblyTypeName: UpOnStageManager, Assembly-CSharp
         m_MethodName: NoteCollected
         m_Mode: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2624169237223050865
+--- !u!114 &4315882564553453953
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,9 +70,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 551462852805061188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 273a1e7270897d24abd66d7d9164f36e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e4ff1a5d1cea1b49b7c0bbfadb73578, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Gamemanager
-  intervalDist: 1
-  OnGameOver: {fileID: 11400000, guid: bbeecbfe7e4d88844954fe1ff49a015d, type: 2}
-  OnInterValReached: {fileID: 11400000, guid: 7506f910c7244c845bead9423511005f, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::UpOnStageManager
+  OnCountdownChanged: {fileID: 11400000, guid: d52ba0d322a022143b528436172762af, type: 2}
+  OnGameOVer: {fileID: 11400000, guid: bbeecbfe7e4d88844954fe1ff49a015d, type: 2}
