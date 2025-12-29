@@ -18,6 +18,7 @@ public class Gamemanager : MonoBehaviour
 
    
     [SerializeField] private GameEvent OnGameOVer;
+    [SerializeField] private GameEvent OnGameStarted;
 
     bool outcomeSet = false;
 
@@ -32,6 +33,8 @@ public class Gamemanager : MonoBehaviour
     private void Start()
     {
         GameStarted = true;
+        OnGameStarted.Raise(this, null);
+        Debug.Log("game start");
 
     }
 
