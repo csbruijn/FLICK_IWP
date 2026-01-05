@@ -15,6 +15,9 @@ using FMODUnity;
     public class PlayerController : MonoBehaviour, IPlayerController
     {
         [SerializeField] private ScriptableStats _stats;
+
+        private int playerIndex; 
+
         private Rigidbody2D _rb;
         private CapsuleCollider2D _col;
         private FrameInput _frameInput;
@@ -39,6 +42,10 @@ using FMODUnity;
             _col = GetComponent<CapsuleCollider2D>();
 
             _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
+
+            playerIndex = Gamemanager.instance.GetComponent<PlayerInputManager>().playerCount -1;
+            Debug.Log($"player {playerIndex} connected");
+            
         }
 
         private void Update()
@@ -58,10 +65,8 @@ using FMODUnity;
         public void OnJump(InputAction.CallbackContext context)
         {
             if(context.started) jumpInput = true;
-
-            Debug.Log("Jump");
-
         }
+
         public void OnMove(InputAction.CallbackContext context)
         {
             moveInput = context.ReadValue<Vector2>();

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using static Gamemanager;
 
@@ -14,52 +15,52 @@ public class Gamemanager : MonoBehaviour
     public int NotesCollected { get; private set; }
     private int NotesToCollect;
 
-    public float scrollspeed { get; private set; } = 0.05f; 
+    public float scrollspeed = 5f;
 
-   
+    public int totalPlayers;
+
     [SerializeField] private GameEvent OnGameOVer;
 
     bool outcomeSet = false;
-
 
     private void Awake()
     {
         if (instance == null) instance = this;
         else Destroy(this);
-
     }
 
-    private void Start()
+    public void OnPlayerJoined()
     {
-        GameStarted = true;
+        Debug.Log("player joined");
 
+        int playersConnected = GetComponent<PlayerInputManager>().playerCount;
+        totalPlayers = GetComponent<PlayerInputManager>().maxPlayerCount;
+
+        if (playersConnected == totalPlayers)
+        {
+            Debug.Log("Start Game");
+            GameStarted = true ;
+        }
     }
-
-
-   
 
     public void NoteCollected(Component sender, System.Object data)
     {
 
     }
 
-    private void InitiateGameOver()
+    public void OnGameFinish(Component sender, System.Object data)
     {
-       GameOver = true;
+        GameOver = true;
         Debug.Log("game over");
-        OnGameOVer.Raise(this, false);
-
+        OnGameOVer.Raise(this, true);
     }
 
-    
 
     public void SetOutcome(GameOutcome outcome)
     {
         if (outcomeSet) return;
-
         LevelsManager.instance.playData.outcome = outcome;
         outcomeSet = true;
-
     }    
 }
 
