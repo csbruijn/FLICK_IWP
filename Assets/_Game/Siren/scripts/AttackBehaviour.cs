@@ -1,13 +1,43 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AttackBehaviour : MonoBehaviour
 {
-    public GameEvent OnSirenWaveAttack; 
+    [SerializeField] private GameEvent onFiveSecondsPassed;
+    [SerializeField] private GameEvent onTenSecondsPassed;
 
-    public void OnMagicButtonPressed()
+    [SerializeField] private float verticalAttackInterval = 5f;
+    [SerializeField] private float horizontalAttackInterval = 10f;
+    [SerializeField] private float startingTime = 60f;
+
+    private float remainingTime;
+    private float verticalAttackTimer;
+    private float horizontalAttackTimer;
+
+    void Start()
     {
-        OnSirenWaveAttack.Raise(this,null);
-        Debug.Log("SIREN SWEEP");
+        remainingTime = startingTime;
     }
-    
+
+    void Update()
+    {
+        float dt = Time.deltaTime;
+
+        remainingTime -= dt;
+        verticalAttackTimer += dt;
+        horizontalAttackTimer += dt;
+
+        if (verticalAttackTimer >= verticalAttackInterval)
+        {
+            onFiveSecondsPassed.Raise(this, remainingTime);
+            verticalAttackTimer -= verticalAttackInterval;
+        }
+
+        if (horizontalAttackTimer >= horizontalAttackInterval)
+        {
+            onTenSecondsPassed.Raise(this, remainingTime);
+            horizontalAttackTimer -= horizontalAttackInterval;
+        }
+    }
+
 }
