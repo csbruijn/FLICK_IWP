@@ -18,6 +18,8 @@ public class WaveSpawner : MonoBehaviour
     // call this from button/from whatever triggers the attack
     public void SpawnWaveAttack()
     {
+        if (!Gamemanager.instance.GameStarted) return;
+
         for (int i = 0; i < waveCount; i++)
         {
             Vector3 offset = new Vector3(i * horizontalSpacing, 0f, 0f);
@@ -37,6 +39,8 @@ public class WaveSpawner : MonoBehaviour
 
     public void SpawnWaveAttackUp()
     {
+        if (!Gamemanager.instance.GameStarted) return;
+
         for (int i = 0; i < waveCount; i++)
         {
             Vector3 offset = new Vector3(0f, i * verticalSpacing, 0f);

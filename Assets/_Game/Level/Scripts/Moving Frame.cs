@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MovingFrame : MonoBehaviour
 {
-    [SerializeField] private float scrollSpeed;
+    private float scrollSpeed;
 
     private void Start()
     {
@@ -11,9 +11,10 @@ public class MovingFrame : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // move the platform to the left 
+        if (!Gamemanager.instance.GameStarted) return;
+
         transform.position = new Vector3(
-            transform.position.x + scrollSpeed, 
+            transform.position.x + (scrollSpeed *Time.deltaTime), 
             transform.position.y, 
             transform.position.z);
 

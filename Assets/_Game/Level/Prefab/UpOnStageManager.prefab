@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4151848066907466395}
-  - component: {fileID: 8067685955773247350}
-  - component: {fileID: 4315882564553453953}
+  - component: {fileID: 1171093735794423996}
+  - component: {fileID: 1655972927430546115}
+  - component: {fileID: 9072673479517291353}
   m_Layer: 0
   m_Name: UpOnStageManager
   m_TagString: Untagged
@@ -33,7 +34,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8067685955773247350
+--- !u!114 &1171093735794423996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551462852805061188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273a1e7270897d24abd66d7d9164f36e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gamemanager
+  scrollspeed: 1.5
+  totalPlayers: 0
+  OnGameOVer: {fileID: 11400000, guid: bbeecbfe7e4d88844954fe1ff49a015d, type: 2}
+  OnGameStarted: {fileID: 11400000, guid: f286c16b9fdd395439ace091de727f0d, type: 2}
+  onCountDownChanged: {fileID: 11400000, guid: d52ba0d322a022143b528436172762af, type: 2}
+  startTime: 10
+--- !u!114 &1655972927430546115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551462852805061188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInputManager
+  m_NotificationBehavior: 0
+  m_MaxPlayerCount: 2
+  m_AllowJoining: 1
+  m_JoinBehavior: 0
+  m_PlayerJoinedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_PlayerLeftEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_JoinAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Join
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 1c7b01a8-b25c-4203-b4a6-b29d552f7d22
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_PlayerPrefab: {fileID: 6049996726168550532, guid: 79d4e3368d36ab2419a4203ddc3c666a, type: 3}
+  m_SplitScreen: 0
+  m_MaintainAspectRatioInSplitScreen: 0
+  m_FixedNumberOfSplitScreens: -1
+  m_SplitScreenRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!114 &9072673479517291353
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,13 +108,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33af63db64899a4e9c782559f665080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
-  gameEvent: {fileID: 11400000, guid: 3586fcae62b373a4a9239b38572365a8, type: 2}
+  gameEvent: {fileID: 11400000, guid: 200adcd6839a77c4f8671ae0db29c77d, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4315882564553453953}
-        m_TargetAssemblyTypeName: UpOnStageManager, Assembly-CSharp
-        m_MethodName: NoteCollected
+      - m_Target: {fileID: 1171093735794423996}
+        m_TargetAssemblyTypeName: Gamemanager, Assembly-CSharp
+        m_MethodName: OnGameFinish
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -61,17 +124,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4315882564553453953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551462852805061188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e4ff1a5d1cea1b49b7c0bbfadb73578, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UpOnStageManager
-  OnCountdownChanged: {fileID: 11400000, guid: d52ba0d322a022143b528436172762af, type: 2}
-  OnGameOVer: {fileID: 11400000, guid: bbeecbfe7e4d88844954fe1ff49a015d, type: 2}

@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 1544650614272011794}
   - component: {fileID: 1273839046858610378}
   - component: {fileID: 8761453675251878530}
+  - component: {fileID: 6852054079371204722}
   m_Layer: 6
-  m_Name: Player Controller
+  m_Name: PlayerController
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerVisuals
   spriteRenderer: {fileID: 2969068313154050967}
-  hitColor: {r: 0, g: 0.12173247, b: 1, a: 1}
+  hitColor: {r: 0.6980392, g: 0.1333333, b: 0.1333333, a: 1}
   redDuration: 2
 --- !u!114 &8761453675251878530
 MonoBehaviour:
@@ -231,6 +232,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6852054079371204722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544650614272011804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c45e93a7a46260e41bb0e8827e72c0a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStatus
+  isFinished: 0
 --- !u!1 &2969068311587289281
 GameObject:
   m_ObjectHideFlags: 0
@@ -29734,8 +29748,8 @@ Transform:
   m_GameObject: {fileID: 2969068313154050964}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.69, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2969068311962969430}
@@ -29786,8 +29800,8 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9ec0ca269ec0b4f4fa12877c83d9dd88, type: 3}
+  m_SortingOrder: 14
+  m_Sprite: {fileID: 21300000, guid: c868e91e259b0d24092f9d2fb46c4899, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -29899,7 +29913,7 @@ TrailRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Time: 1
   m_PreviewTimeScale: 1
   m_Parameters:

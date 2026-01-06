@@ -7,7 +7,7 @@ public class PianoKeyBooster : MonoBehaviour
     [SerializeField] MidiChannel myChannel;
     [SerializeField] int myNote;
 
-    private GravityWell myGravityWell;
+    [SerializeField]private GravityWell myGravityWell;
     [SerializeField] float BoostStrength = 8f; 
 
     [SerializeField] Color myColor = Color.white;
@@ -25,7 +25,8 @@ public class PianoKeyBooster : MonoBehaviour
     {
         mSP = GetComponent<SpriteRenderer>();
         mSP.color = myColor;
-        myGravityWell = GetComponentInChildren<GravityWell>();
+        //myGravityWell = GetComponentInChildren<GravityWell>();
+        myGravityWell.gameObject.SetActive(true);
         myGravityWell.SetStrenght(BoostStrength);
         myGravityWell.gameObject.SetActive(false);
     }
