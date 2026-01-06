@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 1708453099835951736}
   - component: {fileID: 8728998611373323521}
   - component: {fileID: 480858151351538905}
-  - component: {fileID: -2542711481083730664}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wave
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,16 +137,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.06, y: 2.18}
   m_EdgeRadius: 0
---- !u!114 &-2542711481083730664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4103990700509526578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77d5510e962f8c247b913a0a3413eb1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  OnPlayerHit: {fileID: 11400000, guid: 9ade48c046ee0a241af88054855741f4, type: 2}

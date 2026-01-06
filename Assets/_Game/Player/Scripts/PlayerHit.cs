@@ -21,6 +21,17 @@ public class PlayerHit : MonoBehaviour
         _redTimer = redDuration;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Hazard"))
+        {
+            TurnRed();
+
+            //testing:
+            //GetComponent<PlayerStatus>().KillPlayer();
+        }
+    }
+
     private void Update()
     {
         // Count down while player is red

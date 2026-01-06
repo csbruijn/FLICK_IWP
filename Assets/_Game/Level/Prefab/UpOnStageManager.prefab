@@ -52,6 +52,7 @@ MonoBehaviour:
   OnGameStarted: {fileID: 11400000, guid: f286c16b9fdd395439ace091de727f0d, type: 2}
   onCountDownChanged: {fileID: 11400000, guid: d52ba0d322a022143b528436172762af, type: 2}
   startTime: 10
+  players: []
 --- !u!114 &1655972927430546115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,7 +87,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 6049996726168550532, guid: 79d4e3368d36ab2419a4203ddc3c666a, type: 3}
+  m_PlayerPrefab: {fileID: 1544650614272011804, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1

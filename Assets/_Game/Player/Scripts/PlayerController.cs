@@ -3,14 +3,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using FMODUnity; 
 
-
-    /// <summary>
-    /// Hey!
-    /// Tarodev here. I built this controller as there was a severe lack of quality & free 2D controllers out there.
-    /// I have a premium version on Patreon, which has every feature you'd expect from a polished controller. Link: https://www.patreon.com/tarodev
-    /// You can play and compete for best times here: https://tarodev.itch.io/extended-ultimate-2d-controller
-    /// If you hve any questions or would like to brag about your score, come to discord: https://discord.gg/tarodev
-    /// </summary>
     [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
     public class PlayerController : MonoBehaviour, IPlayerController
     {
@@ -96,6 +88,12 @@ using FMODUnity;
 
         private void FixedUpdate()
         {
+            if (GetComponent<PlayerStatus>().isDead)
+            {
+                ApplyGhostMovement(); 
+                return;
+            }
+
             CheckCollisions();
 
             HandleJump();
@@ -241,9 +239,20 @@ using FMODUnity;
             }
         }
 
-        #endregion
+    #endregion
 
-        private void ApplyMovement() => _rb.linearVelocity = _frameVelocity;
+    private void ApplyGhostMovement()
+    {
+        _frameVelocity.y = Mathf.MoveTowards(_frameVelocity.y, _frameInput.Move.y * _stats.MaxSpeed, _stats.Acceleration * Time.fixedDeltaTime);
+        _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, _frameInput.Move.x * _stats.MaxSpeed, _stats.Acceleration * Time.fixedDeltaTime);
+        
+        _rb.linearVelocity = _frameVelocity;
+
+        //testing: 
+       // if(_jumpToConsume) { GetComponent<PlayerStatus>().RevivePlayer(); }
+    }
+
+    private void ApplyMovement() => _rb.linearVelocity = _frameVelocity;
 
 #if UNITY_EDITOR
         private void OnValidate()
