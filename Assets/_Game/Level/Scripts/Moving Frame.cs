@@ -6,7 +6,7 @@ public class MovingFrame : MonoBehaviour
 
     private void Start()
     {
-        scrollSpeed = Gamemanager.instance.scrollspeed;
+        scrollSpeed = Gamemanager.instance.currentScrollSpeed;
     }
 
     private void FixedUpdate()

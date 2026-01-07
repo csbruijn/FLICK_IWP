@@ -52,7 +52,7 @@ MonoBehaviour:
   horizontalSpacing: 3.5
   verticalSpacing: 0.5
   spawnPoint: {fileID: 2094571501888297275}
-  waveSpeed: 0.5
+  waveSpeed: 0.2
   lifeTime: 3
 --- !u!114 &4974653552177095110
 MonoBehaviour:

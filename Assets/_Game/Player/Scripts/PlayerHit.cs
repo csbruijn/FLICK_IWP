@@ -4,10 +4,10 @@ public class PlayerHit : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
     public Color hitColor = Color.red;
-    public float redDuration = 2f;   // how long they stay red
+    [SerializeField] private float _timeOutDuration = 2f;   // how long they stay red
 
     private Color _originalColor;
-    private float _redTimer = 0f;
+    private float _hitTimeOut = 0f;
 
     private void Awake()
     {
@@ -15,17 +15,19 @@ public class PlayerHit : MonoBehaviour
     }
 
     // Called by your GameEventListener when player is hit
-    public void TurnRed()
+    public void RegisterHit()
     {
         spriteRenderer.color = hitColor;
-        _redTimer = redDuration;
+        _hitTimeOut = _timeOutDuration;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (_hitTimeOut > 0f) return;
+
         if (other.CompareTag("Hazard"))
         {
-            TurnRed();
+            RegisterHit();
 
             //testing:
             //GetComponent<PlayerStatus>().KillPlayer();
@@ -34,13 +36,13 @@ public class PlayerHit : MonoBehaviour
 
     private void Update()
     {
-        // Count down while player is red
-        if (_redTimer > 0f)
+        // Count down while player hit
+        if (_hitTimeOut > 0f)
         {
-            _redTimer -= Time.deltaTime;
+            _hitTimeOut -= Time.deltaTime;
 
             // If time is up, revert color
-            if (_redTimer <= 0f)
+            if (_hitTimeOut <= 0f)
             {
                 spriteRenderer.color = _originalColor;
             }

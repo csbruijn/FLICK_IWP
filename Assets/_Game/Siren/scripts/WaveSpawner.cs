@@ -3,17 +3,17 @@ using UnityEngine;
 public class WaveSpawner : MonoBehaviour
 {
     [Header("Wave setup")]
-    public GameObject wavePrefab;
-    public int waveCount = 5;
-    public float horizontalSpacing = 0.5f;
-    public float verticalSpacing = 0.5f;
+    [SerializeField] private GameObject wavePrefab;
+    [SerializeField] private int waveCount = 5;
+    [SerializeField] private float horizontalSpacing = 0.5f;
+    [SerializeField] private float verticalSpacing = 0.5f;
 
     [Header("Spawn position")]
-    public Transform spawnPoint;        // where waves start spawning
+    [SerializeField] private Transform spawnPoint;        // where waves start spawning
 
     [Header("Movement")]
-    public float waveSpeed = 2f;
-    public float lifeTime = 5f;         //when they die (should be more natural)
+    [SerializeField] private float waveSpeed = 2f;
+    [SerializeField] private float lifeTime = 5f;         //when they die (should be more natural)
 
     // call this from button/from whatever triggers the attack
     public void SpawnWaveAttack()

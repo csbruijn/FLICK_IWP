@@ -31,7 +31,7 @@ public class Platformgenerator : MonoBehaviour
 
     private void Start()
     {
-        scrollspeed = Gamemanager.instance.scrollspeed;
+        scrollspeed = Gamemanager.instance.currentScrollSpeed;
 
         // array of all the midi notes we want to play. 
         int range = maxMidi - minMidi;
@@ -79,12 +79,12 @@ public class Platformgenerator : MonoBehaviour
 
         Vector3 pos = currentPlatform.transform.position;
 
-        // increasing the x-scale with scrollspeed. 
+        // increasing the x-scale with currentScrollSpeed. 
         Vector3 scale = currentPlatform.transform.localScale;
         scale.x = currentPlatformSize;       
         currentPlatform.transform.localScale = scale;
 
-        //move platform to the left (scrollspeed/2)
+        //move platform to the left (currentScrollSpeed/2)
         pos.x += scrollspeed / 2;
 
         currentPlatform.transform.position = pos;

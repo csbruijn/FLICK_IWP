@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,36 +11,37 @@ public class Gamemanager : MonoBehaviour
 {
     public static Gamemanager instance { get; private set; }
 
+    // GameStatus
     public bool GameStarted { get; private set; } = false;
     public bool GameOver { get; private set; } = false; 
 
-    public int NotesCollected { get; private set; }
-    private int NotesToCollect;
+    [Header("Settings")]
+    [SerializeField] private float startScrollSpeed = 1.5f;  
+    public float currentScrollSpeed { get; private set; }
 
-    public float scrollspeed = 5f;
+    [SerializeField] private float startTime = 10f;
+    private float currentTime;
 
-    public int totalPlayers;
+    public int notesToFullBar { get; private set; } = 10;
+
+    //[Header("PlayerCount")]
+    public int totalPlayers{get; private set; }
     int playersConnected = 0; 
+    public PlayerStatus[] players { get; private set; }
 
+    [Header("GameEvents")]
     [SerializeField] private GameEvent OnGameOVer;
     [SerializeField] private GameEvent OnGameStarted;
     [SerializeField] private GameEvent onCountDownChanged;
-
-    [SerializeField] private float startTime = 10f;
-
-    private float currentTime;
-
-    bool outcomeSet = false;
-
-    public PlayerStatus[] players; 
 
     private void Awake()
     {
         if (instance == null) instance = this;
         else Destroy(this);
+
         currentTime = startTime;
-        totalPlayers = GetComponent<UnityEngine.InputSystem.PlayerInputManager>().maxPlayerCount;
-        players = new PlayerStatus[totalPlayers];
+        currentScrollSpeed = startScrollSpeed; 
+        InitPlayerCount();
     }
     void Update()
     {
@@ -52,6 +55,8 @@ public class Gamemanager : MonoBehaviour
         onCountDownChanged.Raise(this, currentTime);
     }
 
+    #region PlayerstatusChecks
+
     private bool CheckPlayersAlive()
     {
         foreach (PlayerStatus player in players)
@@ -61,6 +66,32 @@ public class Gamemanager : MonoBehaviour
         return false;
     }
 
+    public bool AnyPlayerDead()
+    {
+        foreach (PlayerStatus player in players)
+        {
+            if (player.isDead)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public List<PlayerStatus> GetDeadPlayers()
+    {
+        List<PlayerStatus> ps = new();
+        foreach (PlayerStatus player in players)
+        {
+            if (player.isDead)  ps.Add(player); 
+           
+        }
+        return ps;
+    }
+
+    #endregion
+
+    #region initialization
     public void OnPlayerJoined()
     {
         Debug.Log("player joined");
@@ -74,16 +105,19 @@ public class Gamemanager : MonoBehaviour
             OnGameStarted.Raise(this, null); 
         }
     }
+    private void InitPlayerCount()
+    {
+        totalPlayers = GetComponent<UnityEngine.InputSystem.PlayerInputManager>().maxPlayerCount;
+        players = new PlayerStatus[totalPlayers];
+    }
 
     public void AddPlayerToList(PlayerStatus player)
     {
         players[playersConnected-1] = player;
     }
+    #endregion
 
-    public void NoteCollected(Component sender, System.Object data)
-    {
-
-    }
+    #region GameStatus
     public void OnGameOver()
     {
         GameOver = true;
@@ -97,12 +131,13 @@ public class Gamemanager : MonoBehaviour
         OnGameOVer.Raise(this, true);
     }
 
-    public void SetOutcome(GameOutcome outcome)
-    {
-        if (outcomeSet) return;
-        LevelsManager.instance.playData.outcome = outcome;
-        outcomeSet = true;
-    }    
+    //public void SetOutcome(GameOutcome outcome)
+    //{
+    //    if (outcomeSet) return;
+    //    LevelsManager.instance.playData.outcome = outcome;
+    //    outcomeSet = true;
+    //}
+    #endregion
 }
 
 public enum GameOutcome

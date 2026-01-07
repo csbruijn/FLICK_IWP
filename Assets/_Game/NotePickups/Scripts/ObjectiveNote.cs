@@ -24,6 +24,10 @@ public class ObjectiveNote : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!collision.CompareTag("Player")) return; 
+
+        if (collision.GetComponent<PlayerStatus>().isDead ) return;
+
         OnNotePickedUp.Raise(this, myOutcome);
         RuntimeManager.PlayOneShot(pickUpEvent, transform.position);
         Destroy(this.gameObject);
