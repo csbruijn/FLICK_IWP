@@ -13,10 +13,10 @@ public class Gamemanager : MonoBehaviour
 
     // GameStatus
     public bool GameStarted { get; private set; } = false;
-    public bool GameOver { get; private set; } = false; 
+    public bool GameOver { get; private set; } = false;
 
     [Header("Settings")]
-    [SerializeField] private float startScrollSpeed = 1.5f;  
+    [SerializeField] private float startScrollSpeed = 1.5f;
     public float currentScrollSpeed { get; private set; }
 
     [SerializeField] private float startTime = 10f;
@@ -25,14 +25,17 @@ public class Gamemanager : MonoBehaviour
     public int notesToFullBar { get; private set; } = 10;
 
     //[Header("PlayerCount")]
-    public int totalPlayers{get; private set; }
-    int playersConnected = 0; 
+    public int totalPlayers { get; private set; }
+    public int playersConnected { get; private set; } = 0;  
     public PlayerStatus[] players { get; private set; }
 
     [Header("GameEvents")]
     [SerializeField] private GameEvent OnGameOVer;
     [SerializeField] private GameEvent OnGameStarted;
     [SerializeField] private GameEvent onCountDownChanged;
+
+    [Header("refs")]
+    public Transform playerUIContent; 
 
     private void Awake()
     {
@@ -97,6 +100,8 @@ public class Gamemanager : MonoBehaviour
         Debug.Log("player joined");
 
         playersConnected = GetComponent<UnityEngine.InputSystem.PlayerInputManager>().playerCount;
+
+
 
         if (playersConnected == totalPlayers)
         {

@@ -30,7 +30,7 @@ public class PlayerHit : MonoBehaviour
             RegisterHit();
 
             //testing:
-            //GetComponent<PlayerStatus>().KillPlayer();
+            GetComponent<PlayerStatus>().DamagePlayer();
         }
     }
 

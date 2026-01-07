@@ -5012,8 +5012,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatus
   isFinished: 0
+  maxHP: 4
   AliveVis: {fileID: 2969068311962969429}
   SpiritVis: {fileID: 8254891889882346649}
+  OnPlayerDamaged: {fileID: 11400000, guid: 9ade48c046ee0a241af88054855741f4, type: 2}
+  playerStatusViewPrefab: {fileID: 4254418689079447965, guid: f16240a0a6acdce4a8743fae508df648, type: 3}
+  styles:
+  - {fileID: 11400000, guid: e40c679bdc2539a4c971ba2ff0433c98, type: 2}
+  - {fileID: 11400000, guid: dedb3f7b29ac0ee44aeaaa7f643cffc9, type: 2}
 --- !u!114 &1544650614272011792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5112,7 +5118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerVisuals
   spriteRenderer: {fileID: 2969068313154050967}
   hitColor: {r: 0.6980392, g: 0.1333333, b: 0.1333333, a: 1}
-  redDuration: 2
+  _timeOutDuration: 2
 --- !u!1 &1650304461671794697
 GameObject:
   m_ObjectHideFlags: 0

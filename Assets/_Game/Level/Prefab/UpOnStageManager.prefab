@@ -46,13 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 273a1e7270897d24abd66d7d9164f36e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gamemanager
-  scrollspeed: 1.5
-  totalPlayers: 0
+  startScrollSpeed: 1.5
+  startTime: 10
   OnGameOVer: {fileID: 11400000, guid: bbeecbfe7e4d88844954fe1ff49a015d, type: 2}
   OnGameStarted: {fileID: 11400000, guid: f286c16b9fdd395439ace091de727f0d, type: 2}
   onCountDownChanged: {fileID: 11400000, guid: d52ba0d322a022143b528436172762af, type: 2}
-  startTime: 10
-  players: []
+  playerUIContent: {fileID: 0}
 --- !u!114 &1655972927430546115
 MonoBehaviour:
   m_ObjectHideFlags: 0

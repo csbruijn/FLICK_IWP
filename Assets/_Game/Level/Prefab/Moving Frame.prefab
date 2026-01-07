@@ -4061,6 +4061,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wave Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 5799940354767609379, guid: 2261f9ce5b462b54c8e8ccd4ef2a61b1, type: 3}
+      propertyPath: waveCount
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
