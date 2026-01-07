@@ -7,27 +7,24 @@ using static Unity.Burst.Intrinsics.Arm;
 
 public class Platformgenerator : MonoBehaviour
 {
+    
 
-    [SerializeField] private GameObject platform;
-    [SerializeField] private Transform origin, platformsParent;
-
+    [Header("midi setup")]
     [SerializeField] MidiChannel myChannel;
-
     [SerializeField] private int maxMidi =0, minMidi = 127;
     private int[] myMidiNotes;
 
-    [SerializeField] private float yMax, yMin;
-
+    [Header("Spawn setup")]
+    [SerializeField] private float yMax;
+    [SerializeField] private float yMin;
+    private bool creatingPlatform = false;
+    private float currentPlatformSize = 0f, increments;
     private float scrollspeed;
 
-    private bool mousedown = false, creatingPlatform = false;
-
-    private float currentPlatformSize = 0f, increments;
-
+    [Header("Refs")]
+    [SerializeField] private GameObject platform;
+    [SerializeField] private Transform origin, platformsParent;
     private GameObject currentPlatform; 
-
-
-
 
     private void Start()
     {
@@ -46,7 +43,6 @@ public class Platformgenerator : MonoBehaviour
             //Debug.Log(myMidiNotes[i]);
         }
     }
-
     
     private void FixedUpdate()
     {
@@ -69,18 +65,15 @@ public class Platformgenerator : MonoBehaviour
         currentPlatform.transform.SetParent(platformsParent);
         
         ScalePlatform();         
-
     }
 
     private void ScalePlatform()
     {
         currentPlatformSize += scrollspeed;
-        //Debug.Log($"size: {currentPlatformSize}");
 
         Vector3 pos = currentPlatform.transform.position;
-
-        // increasing the x-scale with currentScrollSpeed. 
         Vector3 scale = currentPlatform.transform.localScale;
+
         scale.x = currentPlatformSize;       
         currentPlatform.transform.localScale = scale;
 
@@ -90,11 +83,9 @@ public class Platformgenerator : MonoBehaviour
         currentPlatform.transform.position = pos;
     }
 
-
     void NoteOff(MidiChannel channel, int note)
     {
         if (channel != myChannel) return;
-
         if (note > maxMidi || note < minMidi) return;
 
         creatingPlatform = false;
@@ -103,7 +94,6 @@ public class Platformgenerator : MonoBehaviour
     void NoteOn(MidiChannel channel, int note, float velocity)
     {
         if (channel != myChannel) return;
-        
         if (note > maxMidi || note < minMidi) return;
       
         CreatePlatform((note - minMidi) * increments) ;
@@ -120,5 +110,4 @@ public class Platformgenerator : MonoBehaviour
         MidiMaster.noteOnDelegate -= NoteOn;
         MidiMaster.noteOffDelegate -= NoteOff;
     }
-
 }

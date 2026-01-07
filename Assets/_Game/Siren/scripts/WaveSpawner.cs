@@ -29,7 +29,6 @@ public class WaveSpawner : MonoBehaviour
                 Quaternion.identity
             );
 
-
             // movement functions in another script 
             WaveMover mover = wave.AddComponent<WaveMover>();
             mover.waveSpeed = waveSpeed;
@@ -49,7 +48,6 @@ public class WaveSpawner : MonoBehaviour
                 spawnPoint.position + offset,
                 Quaternion.identity
             );
-
 
             // movement functions in another script 
             WaveMoverUp mover = wave.AddComponent<WaveMoverUp>();

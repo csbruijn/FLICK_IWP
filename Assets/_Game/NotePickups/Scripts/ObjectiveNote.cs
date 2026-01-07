@@ -12,9 +12,7 @@ public class ObjectiveNote : MonoBehaviour
     private float bounceSpeed = 3;
 
     [SerializeField] GameEvent OnNotePickedUp;
-
-    [SerializeField]private GameOutcome myOutcome;
-
+    [SerializeField] private GameOutcome myOutcome;
     [SerializeField] private EventReference pickUpEvent;
 
     private void Start()
@@ -31,8 +29,6 @@ public class ObjectiveNote : MonoBehaviour
         OnNotePickedUp.Raise(this, myOutcome);
         RuntimeManager.PlayOneShot(pickUpEvent, transform.position);
         Destroy(this.gameObject);
-        
-
     }
 
     void Update()
@@ -41,6 +37,5 @@ public class ObjectiveNote : MonoBehaviour
 
         yPos = Mathf.Lerp(startYPos + maximum, startYPos - minimum, Mathf.Abs(sinValue));
         transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
-
     }
 }

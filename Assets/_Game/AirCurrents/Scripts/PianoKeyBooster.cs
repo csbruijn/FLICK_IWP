@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class PianoKeyBooster : MonoBehaviour
 {
+    [Header("Midi setup")]
     [SerializeField] MidiChannel myChannel;
     [SerializeField] int myNote;
 
-    [SerializeField]private GravityWell myGravityWell;
+    [Header("Settings")]
     [SerializeField] float BoostStrength = 8f; 
+    [SerializeField]private float ActiveDelay = .5f, extraTime =.3f;
+    private float ActiveTime = 0f;
+    private bool noteIsOn = false;
 
     [SerializeField] Color myColor = Color.white;
-
     private SpriteRenderer mSP;
 
-    [SerializeField]private float ActiveDelay = .5f, extraTime =.3f;
-
-    private float ActiveTime = 0f;
-
-    private bool noteIsOn = false;
-    private bool boosterIsActive;
+    [Header("Refs")]
+    [SerializeField]private GravityWell myGravityWell;
 
     private void Awake()
     {
@@ -55,34 +54,26 @@ public class PianoKeyBooster : MonoBehaviour
         if (note != myNote) return;
         
         if (myGravityWell.isActiveAndEnabled) DeacivateIndicator();
-        //if (ActiveTime < 0.5f) ActiveTime = .5f; 
-        noteIsOn = false;
-        
+        noteIsOn = false; 
     }
 
     void NoteOn(MidiChannel channel, int note, float velocity)
     {
         if (channel != myChannel) return;
-
         if (note != myNote) return;
         
-        /*if (ActiveTime <= 0) */
         ActivateIndicator();
-
         Debug.Log($"{note} is pressed ");
         noteIsOn = true;
+
         StartCoroutine(DelayedActivation());
-        
     }
-
-
 
     private IEnumerator DelayedActivation()
     {
         yield return new WaitForSeconds(ActiveDelay);
         ActivateBooster();
     }
-
 
     private void ActivateBooster()
     {
@@ -102,7 +93,6 @@ public class PianoKeyBooster : MonoBehaviour
     private void DeacivateIndicator()
     {
         mSP.color = myColor;
-
     }
 
     void OnEnable()

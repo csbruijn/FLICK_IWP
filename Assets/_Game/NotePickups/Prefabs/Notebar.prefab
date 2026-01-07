@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f1e72a581beb748b0c009d5371cc43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NotesBonusView
-  barToFill: {fileID: 5104518722882068881}
+  barToFill: {fileID: 733265641674490287}
 --- !u!114 &8188186636037524168
 MonoBehaviour:
   m_ObjectHideFlags: 0
