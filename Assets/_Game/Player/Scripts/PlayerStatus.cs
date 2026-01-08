@@ -34,8 +34,8 @@ public class PlayerStatus : MonoBehaviour
         PlayerStatusView.initilizeView(styles[playerID]);
         PlayerStatusView.UpdateHPView(HP);
 
-        AliveVis.GetComponent<Image>().sprite = styles[playerID].alive;
-        SpiritVis.GetComponent<Image>().sprite = styles[playerID].spirit;
+        AliveVis.GetComponentInChildren<SpriteRenderer>().sprite = styles[playerID].alive;
+        SpiritVis.GetComponentInChildren<SpriteRenderer>().sprite = styles[playerID].spirit;
 
     }
 
