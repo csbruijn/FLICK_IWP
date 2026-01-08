@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gamemanager
   startScrollSpeed: 1.5
   startTime: 10
+  notesToFullBar: 10
   OnGameOVer: {fileID: 11400000, guid: bbeecbfe7e4d88844954fe1ff49a015d, type: 2}
   OnGameStarted: {fileID: 11400000, guid: f286c16b9fdd395439ace091de727f0d, type: 2}
   onCountDownChanged: {fileID: 11400000, guid: d52ba0d322a022143b528436172762af, type: 2}

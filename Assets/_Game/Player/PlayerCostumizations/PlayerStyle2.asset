@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerStyle2
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStyleData
   playerID: 2
-  alive: {fileID: 21300000, guid: c868e91e259b0d24092f9d2fb46c4899, type: 3}
+  alive: {fileID: 21300000, guid: 0474bc0db5ef75b408435c4c8c6b24cd, type: 3}
   spirit: {fileID: 21300000, guid: 1fbd2fa1d97cc764ea6c48a127d40ea6, type: 3}
   instrument: {fileID: 0}
