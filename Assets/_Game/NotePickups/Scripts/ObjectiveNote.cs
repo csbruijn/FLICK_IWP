@@ -1,19 +1,28 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using FMODUnity;
+using Unity.Mathematics;
 
 public class ObjectiveNote : MonoBehaviour
 {
-    private float minimum = 0.1f;
-    private float maximum = 0.5f;
+
+    [SerializeField] float minStr = 0.1f;
+    [SerializeField] float maxStr = 3f;
+
+    private float strength;
+
+    [SerializeField] private float minimum = 0.1f;
+    [SerializeField] private float maximum = 0.5f;
 
     private float yPos;
     private float startYPos;
-    private float bounceSpeed = 3;
+    [SerializeField] private float bounceSpeed = 3;
 
     [SerializeField] GameEvent OnNotePickedUp;
     [SerializeField] private GameOutcome myOutcome;
     [SerializeField] private EventReference pickUpEvent;
+
+
 
     private void Start()
     {
@@ -26,7 +35,7 @@ public class ObjectiveNote : MonoBehaviour
 
         if (collision.GetComponent<PlayerStatus>().isDead ) return;
 
-        OnNotePickedUp.Raise(this, myOutcome);
+        OnNotePickedUp.Raise(this, strength);
         RuntimeManager.PlayOneShot(pickUpEvent, transform.position);
         Destroy(this.gameObject);
     }
@@ -37,5 +46,20 @@ public class ObjectiveNote : MonoBehaviour
 
         yPos = Mathf.Lerp(startYPos + maximum, startYPos - minimum, Mathf.Abs(sinValue));
         transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
+    }
+
+    
+
+    public void SetStrength(float str)
+    {
+         
+
+       if (str < minStr) Destroy(this.gameObject);
+
+       if (str > maxStr) str = maxStr; 
+
+       strength = str;
+
+       transform.localScale = new Vector3(strength, strength, strength);  
     }
 }

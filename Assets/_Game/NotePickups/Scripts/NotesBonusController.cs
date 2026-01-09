@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class NotesBonusController : MonoBehaviour
 {
     private int TotalNotesToFulfill; 
-    private int currentNotes = 0;
+    private float currentNotes = 0;
 
     [SerializeField] private GameEvent OnUpdateNotesBar;
 
@@ -21,7 +21,7 @@ public class NotesBonusController : MonoBehaviour
 
     public void OnNoteCollected(Component sender, System.Object data)
     {
-        currentNotes++;
+        currentNotes+= (float)data;
         Debug.Log($"notes picked up: {currentNotes}");  
         if (currentNotes >= TotalNotesToFulfill)
         {            

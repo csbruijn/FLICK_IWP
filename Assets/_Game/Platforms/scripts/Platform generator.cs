@@ -7,8 +7,6 @@ using static Unity.Burst.Intrinsics.Arm;
 
 public class Platformgenerator : MonoBehaviour
 {
-    
-
     [Header("midi setup")]
     [SerializeField] MidiChannel myChannel;
     [SerializeField] private int maxMidi =0, minMidi = 127;
