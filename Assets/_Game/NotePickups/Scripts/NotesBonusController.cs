@@ -39,8 +39,12 @@ public class NotesBonusController : MonoBehaviour
             }
             else
             {
-                // heal 
                 Debug.Log("healPlayers");
+                foreach(PlayerStatus p in gm.players)
+                {
+                    p.HealPlayer();
+                }
+
             }
             currentNotes = 0; 
         }

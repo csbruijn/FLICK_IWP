@@ -15,14 +15,14 @@ public class Gamemanager : MonoBehaviour
     public bool GameStarted { get; private set; } = false;
     public bool GameOver { get; private set; } = false;
 
-    [Header("Settings")]
+    [Header("Game Rules")]
     [SerializeField] private float startScrollSpeed = 1.5f;
     public float currentScrollSpeed { get; private set; }
 
     [SerializeField] private float startTime = 10f;
     private float currentTime;
 
-    public int notesToFullBar { get; private set; } = 10;
+    public int notesToFullBar = 10;
 
     //[Header("PlayerCount")]
     public int totalPlayers { get; private set; }

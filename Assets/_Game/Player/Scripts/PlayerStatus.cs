@@ -14,11 +14,10 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private int maxHP =4;
     private int HP; 
 
-    [SerializeField] private GameObject AliveVis, SpiritVis;
     [SerializeField] private GameEvent OnPlayerDamaged;
 
     [SerializeField] private PlayerStatusView playerStatusViewPrefab;
-    private PlayerStatusView PlayerStatusView; 
+    private PlayerStatusView PlayerStatusView;
 
     public List<PlayerStyleData> styles = new();
 
@@ -34,8 +33,7 @@ public class PlayerStatus : MonoBehaviour
         PlayerStatusView.initilizeView(styles[playerID]);
         PlayerStatusView.UpdateHPView(HP);
 
-        AliveVis.GetComponentInChildren<SpriteRenderer>().sprite = styles[playerID].alive;
-        SpiritVis.GetComponentInChildren<SpriteRenderer>().sprite = styles[playerID].spirit;
+        GetComponent<PlayerStyle>().InitializeStyle(styles[playerID]);
 
     }
 
@@ -46,23 +44,23 @@ public class PlayerStatus : MonoBehaviour
         if (HP <= 0 ) KillPlayer();
     }
 
+    public void HealPlayer()
+    {
+        if (HP < 4) HP++;
+        PlayerStatusView.UpdateHPView(HP);
+    }
 
     public void KillPlayer()
     {
-        isDead = true;
-        AliveVis.SetActive(false);
-        SpiritVis.SetActive(true);
+        isDead = true;   
     }
 
     public void RevivePlayer()
     { 
         isDead = false;
-        AliveVis.SetActive(true);
-        SpiritVis.SetActive(false);
         HP = 2;
 
         PlayerStatusView.UpdateHPView(HP);
-
         // put player in position of the otherplayer 1 sec ago? 
     }
 }
