@@ -72,6 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2688171595999981740}
   - component: {fileID: 7248022408201706359}
+  - component: {fileID: 7980116173154185051}
   m_Layer: 0
   m_Name: Platform Generator
   m_TagString: Untagged
@@ -108,10 +109,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c9feed52bc3f1445adb65c95ea2bd63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Platformgenerator
+  myChannel: 0
+  maxMidi: 0
+  minMidi: 127
+  yMax: 0
+  yMin: 0
   platform: {fileID: 3428730236690224028, guid: cb65f0fc4c1d12940bf8a5ec8d05c6ac, type: 3}
   origin: {fileID: 0}
   platformsParent: {fileID: 0}
-  myChannel: 0
-  myMidiNotes: 
-  yMax: {fileID: 0}
-  yMin: {fileID: 0}
+--- !u!114 &7980116173154185051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8808368355506654132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33af63db64899a4e9c782559f665080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
+  gameEvent: {fileID: 11400000, guid: 2334b72dc3a64ee42a4ee5d82a550cd8, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7248022408201706359}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
