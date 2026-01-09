@@ -15,6 +15,7 @@ public class Platformgenerator : MonoBehaviour
     [Header("Spawn setup")]
     [SerializeField] private float yMax;
     [SerializeField] private float yMin;
+    [SerializeField] private float minPlatformSize = 0.1f;
     private bool creatingPlatform = false;
     private float currentPlatformSize = 0f, increments;
     private float scrollspeed;
@@ -61,13 +62,14 @@ public class Platformgenerator : MonoBehaviour
 
         currentPlatform =  Instantiate(platform, spawnPos, Quaternion.identity);
         currentPlatform.transform.SetParent(platformsParent);
-        
+        currentPlatform.GetComponent<PlatformBehaviour>().minSize = minPlatformSize; 
         ScalePlatform();         
     }
 
     private void ScalePlatform()
     {
-        currentPlatformSize += scrollspeed;
+        float adjScrollspeed = scrollspeed * Time.fixedDeltaTime;
+        currentPlatformSize += adjScrollspeed ;
 
         Vector3 pos = currentPlatform.transform.position;
         Vector3 scale = currentPlatform.transform.localScale;
@@ -76,7 +78,7 @@ public class Platformgenerator : MonoBehaviour
         currentPlatform.transform.localScale = scale;
 
         //move platform to the left (currentScrollSpeed/2)
-        pos.x += scrollspeed / 2;
+        pos.x += adjScrollspeed / 2;
 
         currentPlatform.transform.position = pos;
     }
@@ -85,6 +87,7 @@ public class Platformgenerator : MonoBehaviour
     {
         if (channel != myChannel) return;
         if (note > maxMidi || note < minMidi) return;
+
 
         creatingPlatform = false;
     }

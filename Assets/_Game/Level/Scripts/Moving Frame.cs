@@ -14,7 +14,7 @@ public class MovingFrame : MonoBehaviour
         if (!Gamemanager.instance.GameStarted) return;
 
         transform.position = new Vector3(
-            transform.position.x + (scrollSpeed *Time.deltaTime), 
+            transform.position.x + (scrollSpeed *Time.fixedDeltaTime), 
             transform.position.y, 
             transform.position.z);
 
