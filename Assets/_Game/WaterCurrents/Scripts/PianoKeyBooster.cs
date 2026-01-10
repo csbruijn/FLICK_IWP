@@ -17,8 +17,14 @@ public class PianoKeyBooster : MonoBehaviour
     [SerializeField] Color myColor = Color.white;
     private SpriteRenderer mSP;
 
+    [Header("Fountain settings")]
+    [SerializeField] private float indicatorHeight = 2f;
+    [SerializeField] private float fullHeight = 8f;
+
     [Header("Refs")]
     [SerializeField]private GravityWell myGravityWell;
+    [SerializeField] private  FountainController myFountainController;
+
 
     private void Awake()
     {
@@ -53,7 +59,7 @@ public class PianoKeyBooster : MonoBehaviour
 
         if (note != myNote) return;
         
-        if (myGravityWell.isActiveAndEnabled) DeacivateIndicator();
+        //if (myGravityWell.isActiveAndEnabled) DeacivateIndicator();
         noteIsOn = false; 
     }
 
@@ -77,23 +83,30 @@ public class PianoKeyBooster : MonoBehaviour
 
     private void ActivateBooster()
     {
-        DeacivateIndicator();
+        
+        myFountainController.SetHeight(fullHeight);
+        //DeacivateIndicator();
         myGravityWell.gameObject.SetActive(true);
     }
 
     private void DisableBooster()
     {
+        myFountainController.GetComponent<ParticleSystem>().Stop();
+
+
         myGravityWell.gameObject.SetActive(false);
     }
     private void ActivateIndicator()
     {
-         mSP.color = Color.lightGreen;
+        myFountainController.GetComponent<ParticleSystem>().Play();
+        myFountainController.SetHeight(indicatorHeight);
+         //mSP.color = Color.lightGreen;
     }
 
-    private void DeacivateIndicator()
-    {
-        mSP.color = myColor;
-    }
+    //private void DeacivateIndicator()
+    //{
+    //    mSP.color = myColor;
+    //}
 
     void OnEnable()
     {

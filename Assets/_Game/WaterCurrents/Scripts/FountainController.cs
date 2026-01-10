@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FountainController : MonoBehaviour
 {
-    public float fountainHeight = 5f;
+    //public float fountainHeight = 5f;
 
     ParticleSystem ps;
     ParticleSystem.MainModule main;
@@ -13,8 +13,9 @@ public class FountainController : MonoBehaviour
         main = ps.main;
     }
 
-    void Update()
+    public void SetHeight(float height)
     {
-        main.startSpeed = fountainHeight;
+        main.startSpeed = height;
+
     }
 }
