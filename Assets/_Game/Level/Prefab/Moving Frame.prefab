@@ -1976,7 +1976,7 @@ PrefabInstance:
       objectReference: {fileID: 353518445033523484}
     - target: {fileID: 8808368355506654132, guid: 39e3418d6b9e6b64e982eff22394e99a, type: 3}
       propertyPath: m_Name
-      value: Platform Generator
+      value: PlatformSpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -11,6 +11,8 @@ public class NotesSpawner : MonoBehaviour
     [Header("Spawn setup")]
     [SerializeField] private float yMax;
     [SerializeField] private float yMin;
+    [SerializeField] private float xOffset =12f;
+
     private float increments;
 
     [Header("Refs")]
@@ -63,7 +65,7 @@ public class NotesSpawner : MonoBehaviour
         Debug.Log($"create a platform: {origin.position}");
 
         Vector3 spawnPos = new Vector3(
-            origin.position.x + 12,
+            origin.position.x + xOffset,
             origin.position.y + height - ((yMax - yMin) / 2),
             origin.position.z);
 
