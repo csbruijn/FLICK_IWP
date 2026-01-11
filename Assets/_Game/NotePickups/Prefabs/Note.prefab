@@ -172,8 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0030fe34ff985e419d9d9b2b7c3ff94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveNote
-  minStr: 0.1
-  maxStr: 2
+  minStr: 0.2
+  maxStr: 1
   minimum: 0.1
   maximum: 0.5
   bounceSpeed: 2

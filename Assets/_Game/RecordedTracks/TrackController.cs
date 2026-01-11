@@ -118,10 +118,7 @@ public class TrackController : MonoBehaviour
     {
         Debug.Log($"NOTE | t={e.time:F3} | note={e.note} | vel={e.velocity}");
 
-        // Hook gameplay here
-        // SpawnEnemy(e.note);
-        // PulseLight(e.velocity / 127f);
-        // FireProjectile(e.note % 12);
+      
         if(e.note > 2) OnSaxNotePlayed.Raise(this, e);
 
         if (e.note == 1) OnSirenSplashAttack.Raise(this, e);

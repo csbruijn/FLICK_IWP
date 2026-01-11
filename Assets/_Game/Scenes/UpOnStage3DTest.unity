@@ -7508,6 +7508,10 @@ PrefabInstance:
       propertyPath: playerUIContent
       value: 
       objectReference: {fileID: 921561644}
+    - target: {fileID: 1655972927430546115, guid: 4fc7ef1bf9c8b8243a3705a6ab20874a, type: 3}
+      propertyPath: m_MaxPlayerCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4151848066907466395, guid: 4fc7ef1bf9c8b8243a3705a6ab20874a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15
