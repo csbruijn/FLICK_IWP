@@ -6444,10 +6444,6 @@ PrefabInstance:
       value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 7345690544065558066, guid: dbc7b976e53f8ba4ab2daf979304404b, type: 3}
-      propertyPath: myChannel
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7345690544065558066, guid: dbc7b976e53f8ba4ab2daf979304404b, type: 3}
       propertyPath: platformsParent
       value: 
       objectReference: {fileID: 1917791721}
