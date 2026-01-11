@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5799940354767609379}
   - component: {fileID: 4974653552177095110}
   - component: {fileID: 7143196909134765954}
-  - component: {fileID: 505254894776606388}
   m_Layer: 0
   m_Name: Wave Spawner
   m_TagString: Untagged
@@ -67,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33af63db64899a4e9c782559f665080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
-  gameEvent: {fileID: 11400000, guid: 6ed18d96b7bbdb1459807f8106807962, type: 2}
+  gameEvent: {fileID: 11400000, guid: e3a852caf2da4154580d96a0dd2a6254, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
@@ -95,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33af63db64899a4e9c782559f665080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
-  gameEvent: {fileID: 11400000, guid: 340203ee2a3145249839c4038c68c307, type: 2}
+  gameEvent: {fileID: 11400000, guid: 47963538fe0ceb2428c1ecdfb070de1a, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
@@ -111,20 +110,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &505254894776606388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4799885330636042819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3de798d55be79ff4382baa394025161d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AttackBehaviour
-  onFiveSecondsPassed: {fileID: 11400000, guid: 6ed18d96b7bbdb1459807f8106807962, type: 2}
-  onTenSecondsPassed: {fileID: 11400000, guid: 340203ee2a3145249839c4038c68c307, type: 2}
-  verticalAttackInterval: 5
-  horizontalAttackInterval: 10
-  startingTime: 60

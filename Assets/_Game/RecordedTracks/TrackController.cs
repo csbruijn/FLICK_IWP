@@ -16,7 +16,14 @@ public class TrackController : MonoBehaviour
     private int index;
     private bool songPlaying;
 
-    [SerializeField] private GameEvent OnSaxNotePlayed; 
+    [SerializeField] private string MidifilePath; 
+
+    [Header("Events")]
+    [SerializeField] private GameEvent OnSaxNotePlayed;
+    [SerializeField] private GameEvent OnSirenWaveAttack;
+    [SerializeField] private GameEvent OnSirenSplashAttack;
+
+
 
     private void Awake()
     {
@@ -31,7 +38,7 @@ public class TrackController : MonoBehaviour
 
     private void LoadMidi()
     {
-        midiFile = MidiFile.Read("Assets/_Game/RecordedTracks/basic_pitch_transcription(1).mid");
+        midiFile = MidiFile.Read(MidifilePath);
 
 
         //// Place MIDI in StreamingAssets
@@ -111,12 +118,12 @@ public class TrackController : MonoBehaviour
     {
         Debug.Log($"NOTE | t={e.time:F3} | note={e.note} | vel={e.velocity}");
 
-        // Hook gameplay here
-        // SpawnEnemy(e.note);
-        // PulseLight(e.velocity / 127f);
-        // FireProjectile(e.note % 12);
+      
+        if(e.note > 2) OnSaxNotePlayed.Raise(this, e);
 
-        OnSaxNotePlayed.Raise(this, e);
+        if (e.note == 1) OnSirenSplashAttack.Raise(this, e);
+
+        if (e.note == 0) OnSirenWaveAttack.Raise(this, e);
     }
 }
 
