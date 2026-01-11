@@ -14,7 +14,7 @@ public class PlayerHit : MonoBehaviour
         _originalColor = spriteRenderer.color;
     }
 
-    // Called by your GameEventListener when player is hit
+    // Called by GameEventListener when player is hit
     public void RegisterHit()
     {
         spriteRenderer.color = hitColor;
@@ -27,9 +27,10 @@ public class PlayerHit : MonoBehaviour
 
         if (other.CompareTag("Hazard"))
         {
+            //show visual
             RegisterHit();
 
-            //testing:
+            //damage the player
             GetComponent<PlayerStatus>().DamagePlayer();
         }
     }

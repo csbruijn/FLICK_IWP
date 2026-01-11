@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3243694967704424606}
   - component: {fileID: 533604293559543408}
   - component: {fileID: 1357775807778160963}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: DashRing Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4910,7 +4910,7 @@ GameObject:
   - component: {fileID: 1544650614272011794}
   - component: {fileID: 1273839046858610378}
   - component: {fileID: 4780564410612988651}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: PlayerController
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5058,7 +5058,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: a081f785d315a2b43966f129ce852878, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5145,7 +5145,7 @@ GameObject:
   - component: {fileID: 7329515631730533533}
   - component: {fileID: 1929901803469914343}
   - component: {fileID: 5730710785339558457}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Launch Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10039,7 +10039,7 @@ GameObject:
   - component: {fileID: 4011701716681053968}
   - component: {fileID: 995614716030787240}
   - component: {fileID: 9095460716223494228}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Dash Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14875,7 +14875,7 @@ GameObject:
   - component: {fileID: 2969068311587289282}
   - component: {fileID: 2969068311587289284}
   - component: {fileID: 2969068311587289283}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: DashRing Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19769,7 +19769,7 @@ GameObject:
   - component: {fileID: 2969068311631949166}
   - component: {fileID: 2969068311631949152}
   - component: {fileID: 2969068311631949167}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Move Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24603,7 +24603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2969068311871471201}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24642,7 +24642,7 @@ GameObject:
   - component: {fileID: 2969068311962969430}
   - component: {fileID: 2969068311962969768}
   - component: {fileID: 2969068311962969431}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: AliveVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24800,7 +24800,7 @@ GameObject:
   - component: {fileID: 2969068312368229176}
   - component: {fileID: 2969068312368229178}
   - component: {fileID: 2969068312368229177}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Land Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29694,7 +29694,7 @@ GameObject:
   - component: {fileID: 2969068312440364620}
   - component: {fileID: 2969068312440364622}
   - component: {fileID: 2969068312440364621}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Dash Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34530,7 +34530,7 @@ GameObject:
   - component: {fileID: 2969068312619346369}
   - component: {fileID: 2969068312619346371}
   - component: {fileID: 2969068312619346370}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Jump Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39425,7 +39425,7 @@ GameObject:
   - component: {fileID: 2969068312669941332}
   - component: {fileID: 2969068312669941334}
   - component: {fileID: 2969068312669941333}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Launch Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44317,7 +44317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2969068312704584583}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Dash Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44351,7 +44351,7 @@ GameObject:
   - component: {fileID: 2969068313154050965}
   - component: {fileID: 2969068313154050967}
   - component: {fileID: 2969068313154050966}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44463,7 +44463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2969068313184073012}
   - component: {fileID: 2969068313184073013}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: TrailRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44615,7 +44615,7 @@ GameObject:
   - component: {fileID: 2969068313322230366}
   - component: {fileID: 2969068313322230352}
   - component: {fileID: 2969068313322230367}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Double Jump Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49509,7 +49509,7 @@ GameObject:
   - component: {fileID: 1517147247859765275}
   - component: {fileID: 3269459846169497943}
   - component: {fileID: 1786265018543012312}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Land Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54401,7 +54401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6927645858456328890}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54439,7 +54439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8997962378229247407}
   - component: {fileID: 6751840741967978682}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: TrailRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54591,7 +54591,7 @@ GameObject:
   - component: {fileID: 5540595437753315020}
   - component: {fileID: 5479896521983498434}
   - component: {fileID: 3675474453293840872}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Double Jump Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59483,7 +59483,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3126186327820561158}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Dash Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59517,7 +59517,7 @@ GameObject:
   - component: {fileID: 3262721750631360630}
   - component: {fileID: 2612016631903782638}
   - component: {fileID: 3890644876772595511}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Move Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64353,7 +64353,7 @@ GameObject:
   - component: {fileID: 6548390494390769535}
   - component: {fileID: 4328145459781752378}
   - component: {fileID: 7264134924088793328}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: SpiritVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64511,7 +64511,7 @@ GameObject:
   - component: {fileID: 5256778449813826696}
   - component: {fileID: 1714928066601536802}
   - component: {fileID: 5126620043059571972}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Jump Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69406,7 +69406,7 @@ GameObject:
   - component: {fileID: 2225343490415640091}
   - component: {fileID: 6688495682639076812}
   - component: {fileID: 5986302700935213449}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
