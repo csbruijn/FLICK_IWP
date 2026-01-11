@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSpawner
   wavePrefab: {fileID: 4103990700509526578, guid: b56ae78ccf2c4584a8c0e7f9dd7613e2, type: 3}
-  waveUpPrefab: {fileID: 4103990700509526578, guid: e8829a3f40b74c848ae75854094ea74e, type: 3}
+  waveUpPrefab: {fileID: 1392740456841314510, guid: 1da0fb4ceb291b24ca645166aa82412a, type: 3}
   waveCount: 5
   horizontalSpacing: 3.5
   verticalSpacing: 0.5

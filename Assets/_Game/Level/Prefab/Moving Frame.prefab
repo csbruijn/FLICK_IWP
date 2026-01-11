@@ -4065,6 +4065,10 @@ PrefabInstance:
       propertyPath: waveCount
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5799940354767609379, guid: 2261f9ce5b462b54c8e8ccd4ef2a61b1, type: 3}
+      propertyPath: waveUpPrefab
+      value: 
+      objectReference: {fileID: 4103990700509526578, guid: e8829a3f40b74c848ae75854094ea74e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
