@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using FMODUnity;
 using Unity.Mathematics;
+using System.Collections;
 
 public class ObjectiveNote : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class ObjectiveNote : MonoBehaviour
     private void Start()
     {
         startYPos = transform.position.y; 
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,7 +58,11 @@ public class ObjectiveNote : MonoBehaviour
         transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
     }
 
-
+    private IEnumerator DelayedDestroy()
+    {
+        yield return new WaitForSeconds(20f); 
+        Destroy(gameObject);
+    }
 
     public void SetStrength(float str)
     {
