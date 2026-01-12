@@ -51,6 +51,7 @@ MonoBehaviour:
   OnSaxNotePlayed: {fileID: 11400000, guid: 2334b72dc3a64ee42a4ee5d82a550cd8, type: 2}
   OnSirenWaveAttack: {fileID: 11400000, guid: e3a852caf2da4154580d96a0dd2a6254, type: 2}
   OnSirenSplashAttack: {fileID: 11400000, guid: 47963538fe0ceb2428c1ecdfb070de1a, type: 2}
+  OnEndNotePlayed: {fileID: 11400000, guid: fde5164956cfe7a4c8fb250f0612dff6, type: 2}
 --- !u!114 &6668228500259573520
 MonoBehaviour:
   m_ObjectHideFlags: 0

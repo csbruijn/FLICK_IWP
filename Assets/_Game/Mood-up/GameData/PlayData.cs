@@ -4,7 +4,8 @@ using UnityEngine;
 public class PlayData : ScriptableObject
 {
     public bool GameWon; 
-    public GameOutcome outcome;
-    public float timeToCompletion; 
-    
+    //public GameOutcome outcome;
+    public float timeToCompletion;
+    public int NotesCollected;
+
 }

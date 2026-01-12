@@ -22,6 +22,7 @@ public class TrackController : MonoBehaviour
     [SerializeField] private GameEvent OnSaxNotePlayed;
     [SerializeField] private GameEvent OnSirenWaveAttack;
     [SerializeField] private GameEvent OnSirenSplashAttack;
+    [SerializeField] private GameEvent OnEndNotePlayed; 
 
 
 
@@ -120,6 +121,9 @@ public class TrackController : MonoBehaviour
 
       
         if(e.note > 2) OnSaxNotePlayed.Raise(this, e);
+
+        if (e.note == 2) OnSaxNotePlayed.Raise(this, e);
+
 
         if (e.note == 1) OnSirenSplashAttack.Raise(this, e);
 

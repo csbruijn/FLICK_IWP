@@ -21,7 +21,7 @@ public class LevelsManager : MonoBehaviour
 
     public void GetGame()
     {
-        playData.outcome = GameOutcome.Conductor; 
+        //playData.outcome = GameOutcome.Conductor; 
         SceneManager.LoadScene(1);
     }
 
@@ -38,8 +38,12 @@ public class LevelsManager : MonoBehaviour
 
     public void OnGameOver(Component sender, System.Object data)
     {
-        playData.GameWon = (bool)data;
-        //playData.timeToCompletion = sender.GetComponent<Gamemanager>().Remainingtime;
+        GameStats stats = (GameStats)data;
+
+        playData.GameWon = stats.FGamewon; 
+        playData.timeToCompletion = stats.FinalTimePlayed;
+        playData.NotesCollected = stats.FinalNotesCollected; 
+        
         GetPostGame();
 
     }

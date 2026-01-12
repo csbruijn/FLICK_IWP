@@ -175,8 +175,9 @@ MonoBehaviour:
   minStr: 0.2
   maxStr: 1
   minimum: 0.1
-  maximum: 0.5
-  bounceSpeed: 2
+  maximum: 0.3
+  waveFrequency: 1
+  bounceSpeed: 3
   OnNotePickedUp: {fileID: 11400000, guid: 3586fcae62b373a4a9239b38572365a8, type: 2}
   myOutcome: 0
   pickUpEvent:

@@ -13,13 +13,14 @@ public class ObjectiveNote : MonoBehaviour
 
     [SerializeField] private float minimum = 0.1f;
     [SerializeField] private float maximum = 0.5f;
+    [SerializeField] private float waveFrequency = 1f;
 
     private float yPos;
     private float startYPos;
     [SerializeField] private float bounceSpeed = 3;
 
     [SerializeField] GameEvent OnNotePickedUp;
-    [SerializeField] private GameOutcome myOutcome;
+    //[SerializeField] private GameOutcome myOutcome;
     [SerializeField] private EventReference pickUpEvent;
 
 
@@ -42,13 +43,19 @@ public class ObjectiveNote : MonoBehaviour
 
     void Update()
     {
-        float sinValue = Mathf.Sin(Time.time * bounceSpeed);
+        float xOffset = transform.position.x * waveFrequency;
+        float sinValue = Mathf.Sin(Time.time * bounceSpeed + xOffset);
 
-        yPos = Mathf.Lerp(startYPos + maximum, startYPos - minimum, Mathf.Abs(sinValue));
+        yPos = Mathf.Lerp(
+            startYPos + maximum,
+            startYPos - minimum,
+            (sinValue + 1f) * 0.5f
+        );
+
         transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
     }
 
-    
+
 
     public void SetStrength(float str)
     {
