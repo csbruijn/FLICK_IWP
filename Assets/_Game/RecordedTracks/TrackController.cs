@@ -117,12 +117,16 @@ public class TrackController : MonoBehaviour
 
     private void OnMidiNote(MidiNoteEvent e)
     {
-        Debug.Log($"NOTE | t={e.time:F3} | note={e.note} | vel={e.velocity}");
+        //Debug.Log($"NOTE | t={e.time:F3} | note={e.note} | vel={e.velocity}");
 
       
         if(e.note > 2) OnSaxNotePlayed.Raise(this, e);
 
-        if (e.note == 2) OnSaxNotePlayed.Raise(this, e);
+        if (e.note == 2)
+        {
+            OnEndNotePlayed.Raise(this, e);
+            //Debug.Log("finnishNote");
+        }
 
 
         if (e.note == 1) OnSirenSplashAttack.Raise(this, e);

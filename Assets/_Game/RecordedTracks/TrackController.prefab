@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -6396771282321432624}
   - component: {fileID: 6668228500259573520}
   - component: {fileID: 8004637363737797034}
+  - component: {fileID: 2156160698665531905}
   - component: {fileID: 2903050855058331779}
   m_Layer: 0
   m_Name: TrackController
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646cdb05766cdc6478afa27e5ca12692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrackController
-  MidifilePath: Assets/_Game/RecordedTracks/I don't know midi short.mid
+  MidifilePath: Assets/_Game/RecordedTracks/IDK.mid
   OnSaxNotePlayed: {fileID: 11400000, guid: 2334b72dc3a64ee42a4ee5d82a550cd8, type: 2}
   OnSirenWaveAttack: {fileID: 11400000, guid: e3a852caf2da4154580d96a0dd2a6254, type: 2}
   OnSirenSplashAttack: {fileID: 11400000, guid: 47963538fe0ceb2428c1ecdfb070de1a, type: 2}
@@ -123,6 +124,21 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &2156160698665531905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264901011086889771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b4068d3d5233704287530babfbd8f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FmodFadeout
+  musicEmitter: {fileID: 8004637363737797034}
+  fadeOutSpeed: 0.2
+  volumeParameter: JazzVolume
 --- !u!114 &2903050855058331779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,9 +155,9 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8004637363737797034}
-        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
-        m_MethodName: Stop
+      - m_Target: {fileID: 2156160698665531905}
+        m_TargetAssemblyTypeName: FmodFadeout, Assembly-CSharp
+        m_MethodName: StartFadeOut
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

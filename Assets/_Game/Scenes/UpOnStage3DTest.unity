@@ -544,11 +544,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4202035956537594718, guid: d0fa4a4f6d460524ab4aeac014ee0f69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -139.15457
+      value: 10.98
       objectReference: {fileID: 0}
     - target: {fileID: 4202035956537594718, guid: d0fa4a4f6d460524ab4aeac014ee0f69, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 769.8446
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4202035956537594718, guid: d0fa4a4f6d460524ab4aeac014ee0f69, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2962,17 +2962,6 @@ RectTransform:
   m_AnchoredPosition: {x: 298.76, y: 309.6492}
   m_SizeDelta: {x: 597.53, y: -639.2985}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1421925531 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5799940354767609379, guid: 2261f9ce5b462b54c8e8ccd4ef2a61b1, type: 3}
-  m_PrefabInstance: {fileID: 7587488369730739675}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fa0f5852cc864e46b6acaf0cbb4c0d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WaveSpawner
 --- !u!1001 &1447407484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6600,34 +6589,6 @@ PrefabInstance:
     - target: {fileID: 4799885330636042819, guid: 2261f9ce5b462b54c8e8ccd4ef2a61b1, type: 3}
       propertyPath: m_Name
       value: WaveSpawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 4974653552177095110, guid: 2261f9ce5b462b54c8e8ccd4ef2a61b1, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4974653552177095110, guid: 2261f9ce5b462b54c8e8ccd4ef2a61b1, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4974653552177095110, guid: 2261f9ce5b462b54c8e8ccd4ef2a61b1, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1421925531}
-    - target: {fileID: 4974653552177095110, guid: 2261f9ce5b462b54c8e8ccd4ef2a61b1, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4974653552177095110, guid: 2261f9ce5b462b54c8e8ccd4ef2a61b1, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SpawnWaveAttackUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4974653552177095110, guid: 2261f9ce5b462b54c8e8ccd4ef2a61b1, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: WaveSpawner, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4974653552177095110, guid: 2261f9ce5b462b54c8e8ccd4ef2a61b1, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

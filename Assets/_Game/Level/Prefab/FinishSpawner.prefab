@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4202035956537594718}
   - component: {fileID: 2735175554248130999}
   - component: {fileID: 4565063044649053859}
+  - component: {fileID: 7612679941164206985}
   m_Layer: 0
   m_Name: FinishSpawner
   m_TagString: Untagged
@@ -60,6 +61,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
   gameEvent: {fileID: 11400000, guid: fde5164956cfe7a4c8fb250f0612dff6, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2735175554248130999}
+        m_TargetAssemblyTypeName: FinishSpawner, Assembly-CSharp
+        m_MethodName: OnEndNotePlayed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7612679941164206985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7595459242078064481}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33af63db64899a4e9c782559f665080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
+  gameEvent: {fileID: 11400000, guid: f286c16b9fdd395439ace091de727f0d, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
