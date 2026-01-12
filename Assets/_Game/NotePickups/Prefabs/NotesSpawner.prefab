@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4812764560922235174}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.05, y: -4.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NotesSpawner
   maxMidi: 70
   minMidi: 30
-  yMax: 17
-  yMin: 0
+  yMax: 15
+  yMin: -5
   xOffset: 11
   prefab: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
   origin: {fileID: 0}

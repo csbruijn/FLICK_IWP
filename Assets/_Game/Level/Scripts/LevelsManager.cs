@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,8 @@ public class LevelsManager : MonoBehaviour
     public static LevelsManager instance { get; private set; }
 
     public PlayData playData;
+
+    [SerializeField] private float finishDelay = 5f;
 
     private void Awake()
     {
@@ -42,12 +45,19 @@ public class LevelsManager : MonoBehaviour
 
         playData.GameWon = stats.FGamewon; 
         playData.timeToCompletion = stats.FinalTimePlayed;
-        playData.NotesCollected = stats.FinalNotesCollected; 
-        
+        playData.NotesCollected = stats.FinalNotesCollected;
+
+        StartCoroutine(GameOverSequence()); 
+    }
+
+    private IEnumerator GameOverSequence()
+    {
+
+        yield return new WaitForSeconds(finishDelay);
+
         GetPostGame();
 
     }
-
 
 
 }

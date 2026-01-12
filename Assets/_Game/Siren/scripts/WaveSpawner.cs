@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
@@ -10,6 +11,8 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private float horizontalSpacing = 0.5f;
     [SerializeField] private float verticalSpacing = 0.5f;
 
+    [SerializeField] private float waveDelay =1, SplashDelay=1 ; 
+
     [Header("Spawn position")]
     [SerializeField] private Transform spawnPoint;
 
@@ -21,26 +24,22 @@ public class WaveSpawner : MonoBehaviour
     {
         if (!Gamemanager.instance.GameStarted) return;
 
-        for (int i = 0; i < waveCount; i++)
-        {
-            Vector3 offset = new Vector3(i * horizontalSpacing, 0f, 0f);
-
-            GameObject wave = Instantiate(
-                wavePrefab,
-                spawnPoint.position + offset,
-                Quaternion.identity
-            );
-
-            WaveMover mover = wave.AddComponent<WaveMover>();
-            mover.waveSpeed = waveSpeed;
-            mover.lifeTime = lifeTime;
-        }
+        StartCoroutine(DelayedWaveAttackWave(waveDelay)); 
     }
 
     public void SpawnWaveAttackUp()
     {
         if (!Gamemanager.instance.GameStarted) return;
 
+        StartCoroutine(DelayedWaveAttackUp(SplashDelay));
+
+    }
+
+
+    private IEnumerator DelayedWaveAttackUp(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        
         // fallback so you don’t break anything if you forget to assign it
         GameObject prefabToUse = (waveUpPrefab != null) ? waveUpPrefab : wavePrefab;
 
@@ -62,6 +61,26 @@ public class WaveSpawner : MonoBehaviour
                 mover.waveSpeed = waveSpeed;
                 mover.lifeTime = lifeTime;
             }
+        }
+    }
+
+    private IEnumerator DelayedWaveAttackWave(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        for (int i = 0; i < waveCount; i++)
+        {
+            Vector3 offset = new Vector3(i * horizontalSpacing, 0f, 0f);
+
+            GameObject wave = Instantiate(
+                wavePrefab,
+                spawnPoint.position + offset,
+                Quaternion.identity
+            );
+
+            WaveMover mover = wave.AddComponent<WaveMover>();
+            mover.waveSpeed = waveSpeed;
+            mover.lifeTime = lifeTime;
         }
     }
 }
