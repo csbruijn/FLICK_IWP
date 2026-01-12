@@ -6,10 +6,7 @@ using UnityEngine.UI;
 
 public class GameOutComeView : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI GameStateText, outcomeName, outcomeDescr,remainingtime;
-    [SerializeField] private Image outcomeImage;
-
-    [SerializeField] private List<Outcomes> outcomes = new List<Outcomes>();
+    [SerializeField] private TextMeshProUGUI GameStateText, NotesCollected ,remainingtime;
 
     private void Awake()
     {
@@ -18,22 +15,28 @@ public class GameOutComeView : MonoBehaviour
         if (playData.GameWon)
         {
             GameStateText.text = "Game won!";
-            remainingtime.text = "Time remaining: " + Mathf.RoundToInt(playData.timeToCompletion).ToString();
         }
         else
         {
             GameStateText.text = "Game lost";
-            remainingtime.text = ""; 
         }
+        
+        remainingtime.text = 
+            "Time survived: " + 
+            Mathf.RoundToInt(playData.timeToCompletion).ToString();
+        NotesCollected.text = 
+            "Notes Collected " + 
+            playData.NotesCollected.ToString();
 
-        Outcomes outcome = outcomes.Find(o => o.OutcomeRef == playData.outcome);
 
-        if (outcome != null)
-        {
-            outcomeName.text = "Congratulations, you're " + outcome.myName + "!";
-            outcomeDescr.text = outcome.myDescription;
-            outcomeImage.sprite = outcome.mySprite;
-        }
+        //Outcomes outcome = outcomes.Find(o => o.OutcomeRef == playData.outcome);
+
+        //if (outcome != null)
+        //{
+        //    NotesCollected.text = "Congratulations, you're " + outcome.myName + "!";
+        //    outcomeDescr.text = outcome.myDescription;
+        //    outcomeImage.sprite = outcome.mySprite;
+        //}
 
     }
 
