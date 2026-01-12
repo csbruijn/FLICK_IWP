@@ -2,24 +2,30 @@ using UnityEngine;
 
 public class ParallaxLayer : MonoBehaviour
 {
+    [Header("Parallax Settings")]
     [Range(0f, 1f)]
-    [SerializeField] private float parallaxFactor = 0.5f;
-    // 0 = locked to camera, 1 = moves like normal world, smaller = "further away"
+    [SerializeField] private float parallaxStrength = 0.3f;
+    // Smaller = further away
 
-    [SerializeField] private Transform cameraTransform;
-
-    private Vector3 lastCamPos;
+    private Transform cam;
+    private Vector3 lastCamPosition;
 
     void Start()
     {
-        if (!cameraTransform) cameraTransform = Camera.main.transform;
-        lastCamPos = cameraTransform.position;
+        cam = Camera.main.transform;
+        lastCamPosition = cam.position;
     }
 
     void LateUpdate()
     {
-        Vector3 camDelta = cameraTransform.position - lastCamPos;
-        transform.position += new Vector3(camDelta.x * parallaxFactor, camDelta.y * parallaxFactor, 0f);
-        lastCamPos = cameraTransform.position;
+        Vector3 camDelta = cam.position - lastCamPosition;
+
+        transform.position -= new Vector3(
+            camDelta.x * parallaxStrength,
+            camDelta.y * parallaxStrength,
+            0f
+        );
+
+        lastCamPosition = cam.position;
     }
 }
