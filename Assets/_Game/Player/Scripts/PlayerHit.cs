@@ -27,8 +27,9 @@ public class PlayerHit : MonoBehaviour
 
         if (other.CompareTag("Hazard"))
         {
+
             //show visual
-            RegisterHit();
+            //RegisterHit();
 
             //damage the player
             GetComponent<PlayerStatus>().DamagePlayer();

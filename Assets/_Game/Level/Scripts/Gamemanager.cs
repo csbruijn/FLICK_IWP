@@ -129,7 +129,7 @@ public class Gamemanager : MonoBehaviour
     public void OnGameOver()
     {
         GameOver = true;
-        Debug.Log("game lost");
+        //Debug.Log("game lost");
         GameStats stats = new GameStats(false, TimePlayed, TotNotesCollected);
         OnGameOVer.Raise(this, stats);
     }
@@ -137,7 +137,7 @@ public class Gamemanager : MonoBehaviour
     public void OnGameFinish(Component sender, System.Object data)
     {
         GameOver = true;
-        Debug.Log("game Won");
+        //Debug.Log("game Won");
         GameStats stats = new GameStats(true, TimePlayed, TotNotesCollected);
         OnGameOVer.Raise(this, stats);
     }
