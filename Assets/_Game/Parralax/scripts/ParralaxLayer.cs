@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ParallaxLayer : MonoBehaviour
@@ -10,13 +11,31 @@ public class ParallaxLayer : MonoBehaviour
     private Transform cam;
     private Vector3 lastCamPosition;
 
+    [SerializeField] private GameObject respawnPoint;
+    [SerializeField] private GameObject repeater;
+
+
+    public bool AutoRepeat = true;
+
     void Start()
     {
         cam = Camera.main.transform;
         lastCamPosition = cam.position;
+
+        GameObject[] repeaters = GameObject.FindGameObjectsWithTag("Repeater");
+        repeater = repeaters[0];
+
+        GameObject[] respawners = GameObject.FindGameObjectsWithTag("Respawner");
+        respawnPoint = respawners[0];
     }
 
     void LateUpdate()
+    {
+        HandleParralax();
+        HandleRepetition();
+    }
+
+    private void HandleParralax()
     {
         Vector3 camDelta = cam.position - lastCamPosition;
 
@@ -28,4 +47,20 @@ public class ParallaxLayer : MonoBehaviour
 
         lastCamPosition = cam.position;
     }
+
+    private void HandleRepetition()
+    {
+        if (!AutoRepeat) return;
+
+        if (transform.position.x < repeater.transform.position.x)
+        {
+            transform.position = new Vector3(
+                        respawnPoint.transform.position.x,
+                        transform.position.y,
+                        transform.position.z
+                        );
+        }
+    }
 }
+
+
