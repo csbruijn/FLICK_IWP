@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 13
   m_Sprite: {fileID: 21300000, guid: 18b1946512eaa124b8b3d4839a6f6389, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -131,6 +131,8 @@ MonoBehaviour:
   animator: {fileID: 0}
   verticalTrigger: Vertical
   horizontalTrigger: Horizontal
+  VerticalStartDelay: 0
+  HorizontalStartDelay: 0
 --- !u!114 &4022299289835885084
 MonoBehaviour:
   m_ObjectHideFlags: 0
