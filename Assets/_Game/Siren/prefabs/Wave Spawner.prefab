@@ -52,6 +52,8 @@ MonoBehaviour:
   waveCount: 2
   horizontalSpacing: 3.5
   verticalSpacing: 0.5
+  waveDelay: 1
+  SplashDelay: 5
   spawnPoint: {fileID: 2094571501888297275}
   waveSpeed: 0.2
   lifeTime: 3

@@ -62,7 +62,7 @@ public class NotesSpawner : MonoBehaviour
     }
     private void CreateNote(float height, float strength)
     {
-        Debug.Log($"create a platform: {origin.position}");
+        //Debug.Log($"create a Note: {origin.position}");
 
         Vector3 spawnPos = new Vector3(
             origin.position.x + xOffset,
