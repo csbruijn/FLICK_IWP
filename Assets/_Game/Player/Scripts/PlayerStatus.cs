@@ -52,14 +52,16 @@ public class PlayerStatus : MonoBehaviour
 
     public void KillPlayer()
     {
-        isDead = true;   
+        isDead = true;
+        GetComponent<PlayerStyle>().SetSpiritStyle();
+
     }
 
     public void RevivePlayer()
     { 
         isDead = false;
         HP = 2;
-
+        GetComponent<PlayerStyle>().SetAliveStyle();
         PlayerStatusView.UpdateHPView(HP);
         // put player in position of the otherplayer 1 sec ago? 
     }
