@@ -23,6 +23,8 @@ public class Gamemanager : MonoBehaviour
     private float currentTime;
 
     public int notesToFullBar = 10;
+    private int TotNotesCollected = 0;
+    private float TimePlayed = 0f; 
 
     //[Header("PlayerCount")]
     public int totalPlayers { get; private set; }
@@ -50,6 +52,7 @@ public class Gamemanager : MonoBehaviour
     {
         if (!GameStarted) return;
 
+        TimePlayed += Time.deltaTime;
         if (!CheckPlayersAlive()) OnGameOver();
 
         if (currentTime <= 0f) return;
@@ -127,13 +130,23 @@ public class Gamemanager : MonoBehaviour
     {
         GameOver = true;
         Debug.Log("game lost");
-        OnGameOVer.Raise(this, false);
+        GameStats stats = new GameStats(false, TimePlayed, TotNotesCollected);
+        OnGameOVer.Raise(this, stats);
     }
+
     public void OnGameFinish(Component sender, System.Object data)
     {
         GameOver = true;
         Debug.Log("game Won");
-        OnGameOVer.Raise(this, true);
+        GameStats stats = new GameStats(true, TimePlayed, TotNotesCollected);
+        OnGameOVer.Raise(this, stats);
+    }
+
+    private void SetPlayData()
+    {
+        LevelsManager.instance.playData.NotesCollected = TotNotesCollected;
+        LevelsManager.instance.playData.timeToCompletion = TimePlayed;
+
     }
 
     //public void SetOutcome(GameOutcome outcome)
@@ -143,13 +156,33 @@ public class Gamemanager : MonoBehaviour
     //    outcomeSet = true;
     //}
     #endregion
+
+    public void OnNoteCollected()
+    {
+            TotNotesCollected ++;
+    }
 }
 
-public enum GameOutcome
+
+public struct GameStats
 {
-    Conductor,
-    Percussion,
-    Brass,
-    Woodwinds,
-    strings
-}
+    public bool FGamewon;
+    public float FinalTimePlayed;
+    public int FinalNotesCollected; 
+
+    public GameStats(bool state, float time, int notes)
+    {
+        FGamewon = state;
+        FinalTimePlayed = time;
+        FinalNotesCollected = notes;
+    }
+ }
+
+//public enum GameOutcome
+//{
+//    Conductor,
+//    Percussion,
+//    Brass,
+//    Woodwinds,
+//    strings
+//}

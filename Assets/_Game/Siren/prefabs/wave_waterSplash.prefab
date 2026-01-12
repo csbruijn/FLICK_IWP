@@ -106,8 +106,8 @@ MonoBehaviour:
   dropletPrefab: {fileID: 4103990700509526578, guid: 76c4aa94f97e7e74b9181df4ff5db58a, type: 3}
   dropletCount: 22
   timeBetween: 0.02
-  minAngle: 30
-  maxAngle: 65
+  minAngle: 40
+  maxAngle: 85
   minSpeed: 8
   maxSpeed: 14
   destroySelfAfter: 2
