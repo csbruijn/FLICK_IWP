@@ -734,8 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b39e5bab4462845b9429772533aa1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxLayer
-  parallaxFactor: 0.5
-  cameraTransform: {fileID: 0}
+  parallaxStrength: 0.3
 --- !u!1 &229693147
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,7 +952,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.39, y: -4.98, z: -4.6}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4642043405644614089}
