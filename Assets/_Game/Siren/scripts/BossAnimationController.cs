@@ -2,7 +2,9 @@ using System.Collections;
 using UnityEngine;
 
 public class BossAnimationController : MonoBehaviour
+
 {
+
     [SerializeField] private Animator animator;
 
     [Header("Animator Trigger Names")]
@@ -24,11 +26,15 @@ public class BossAnimationController : MonoBehaviour
 
     public void PlayVertical()
     {
-        StartCoroutine(DelayedStartVert()); 
+        Debug.Log("[BossAnimationController] PlayVertical() called");
+
+        StartCoroutine(DelayedStartVert());
     }
 
     public void PlayHorizontal()
     {
+        Debug.Log("[BossAnimationController] PlayHorizontal() called");
+
         StartCoroutine(DelayedStartHor());
     }
 
@@ -46,5 +52,4 @@ public class BossAnimationController : MonoBehaviour
         animator.ResetTrigger(verticalHash);
         animator.SetTrigger(horizontalHash);
     }
-
 }
