@@ -10,6 +10,9 @@ public class AttackBehaviour : MonoBehaviour
     [SerializeField] private float horizontalAttackInterval = 10f;
     [SerializeField] private float startingTime = 60f;
 
+    [Header("Boss animation")]
+    [SerializeField] private BossAnimationController bossAnim;
+
     private float remainingTime;
     private float verticalAttackTimer;
     private float horizontalAttackTimer;
@@ -27,17 +30,26 @@ public class AttackBehaviour : MonoBehaviour
         verticalAttackTimer += dt;
         horizontalAttackTimer += dt;
 
+        // Vertical attack moment
         if (verticalAttackTimer >= verticalAttackInterval)
         {
+            if (bossAnim != null) bossAnim.PlayVertical();
+
+            // keep existing wave/event logic
             onFiveSecondsPassed.Raise(this, remainingTime);
+
             verticalAttackTimer -= verticalAttackInterval;
         }
 
+        // Horizontal attack moment
         if (horizontalAttackTimer >= horizontalAttackInterval)
         {
+            if (bossAnim != null) bossAnim.PlayHorizontal();
+
+            // keep existing wave/event logic
             onTenSecondsPassed.Raise(this, remainingTime);
+
             horizontalAttackTimer -= horizontalAttackInterval;
         }
     }
-
 }
