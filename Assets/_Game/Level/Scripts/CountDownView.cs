@@ -3,15 +3,34 @@ using UnityEngine;
 
 public class CountDownView : MonoBehaviour
 {
-    //the time is in seconds now
+    [SerializeField] private GameObject countdownPlate;
+
+    private TextMeshProUGUI countdownText;
+
+    private void Awake()
+    {
+        countdownText = GetComponent<TextMeshProUGUI>();
+    }
+
+  
     public void OnCountDownChanged(Component sender, System.Object data)
     {
         float timeToDisplay = (float)data;
+        int seconds = Mathf.CeilToInt(timeToDisplay);
 
-        GetComponent<TextMeshProUGUI>().text = Mathf.CeilToInt(timeToDisplay).ToString();
+        countdownText.text = seconds.ToString();
 
-        //Debug.Log("countdown script is working");
+        // Show plate while counting, hide at 0
+        if (seconds <= 0)
+            countdownPlate.SetActive(false);
+        else
+            countdownPlate.SetActive(true);
     }
 
-
+    
+    public void ResetCountdownVisual()
+    {
+        countdownPlate.SetActive(true);
+        countdownText.text = "";
+    }
 }
