@@ -103,11 +103,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69995bffc6970e438510815f81e3dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaterSplashAttack
-  dropletPrefab: {fileID: 4103990700509526578, guid: 76c4aa94f97e7e74b9181df4ff5db58a, type: 3}
+  dropletPrefab: {fileID: 983394110363744357, guid: 90d1930e8227b6a44a9e28dc5393a0e0, type: 3}
   dropletCount: 22
   timeBetween: 0.02
-  minAngle: 40
+  minAngle: 60
   maxAngle: 85
-  minSpeed: 8
-  maxSpeed: 14
+  minSpeed: 16
+  maxSpeed: 26
   destroySelfAfter: 2
