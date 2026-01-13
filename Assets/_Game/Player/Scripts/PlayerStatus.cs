@@ -24,18 +24,24 @@ public class PlayerStatus : MonoBehaviour
     private void Awake()
     {
         HP = maxHP;
-        
+
         gm = Gamemanager.instance;
         gm.AddPlayerToList(this);
-        playerID = gm.playersConnected -1;
+        playerID = gm.playersConnected - 1;
         PlayerStatusView = Instantiate(playerStatusViewPrefab);
         PlayerStatusView.transform.SetParent(gm.playerUIContent.transform, false);
+    }
+        
+        private void Start()
+    {
         PlayerStatusView.initilizeView(styles[playerID]);
         PlayerStatusView.UpdateHPView(HP);
 
         GetComponent<PlayerStyle>().InitializeStyle(styles[playerID]);
-
     }
+
+
+    
 
     public void DamagePlayer()
     {
