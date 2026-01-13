@@ -8,6 +8,12 @@ public class LevelsManager : MonoBehaviour
 
     public PlayData playData;
 
+    public Animator backgroundAnimator;
+    public CanvasGroup fadeOverlay;
+
+    public float exitAnimationDuration = 1.2f;
+    public float fadeDuration = 0.6f;
+
     [SerializeField] private float finishDelay = 5f;
 
     private void Awake()
@@ -25,7 +31,36 @@ public class LevelsManager : MonoBehaviour
     public void GetGame()
     {
         //playData.outcome = GameOutcome.Conductor; 
-        SceneManager.LoadScene(1);
+        
+        //this is to make sure animation runs before scene changes to main
+        StartCoroutine(PlayExitFadeThenLoad());
+       
+
+        IEnumerator PlayExitFadeThenLoad()
+        {
+            backgroundAnimator.SetTrigger("StartGame");
+
+            // start fading a bit after animation begins
+            yield return new WaitForSeconds(exitAnimationDuration - fadeDuration);
+
+            yield return StartCoroutine(FadeToBlack());
+
+            SceneManager.LoadScene(1);
+        }
+
+        IEnumerator FadeToBlack()
+        {
+            float t = 0f;
+            while (t < fadeDuration)
+            {
+                t += Time.deltaTime;
+                fadeOverlay.alpha = Mathf.Clamp01(t / fadeDuration);
+                yield return null;
+            }
+
+            fadeOverlay.alpha = 1f;
+        }
+
     }
 
     public void GetPostGame()
