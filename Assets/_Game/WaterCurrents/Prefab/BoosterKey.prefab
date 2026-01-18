@@ -522,6 +522,10 @@ PrefabInstance:
       propertyPath: ShapeModule.radiusThickness
       value: 0.97
       objectReference: {fileID: 0}
+    - target: {fileID: 3403120549247747828, guid: ebe1512be79d71e408e88e9e11b9e534, type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4749346814284421529, guid: ebe1512be79d71e408e88e9e11b9e534, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

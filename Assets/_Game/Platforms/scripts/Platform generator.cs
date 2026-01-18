@@ -19,6 +19,7 @@ public class Platformgenerator : MonoBehaviour
     private bool creatingPlatform = false;
     private float currentPlatformSize = 0f, increments;
     private float scrollspeed;
+    [SerializeField] private float xOffset = 10f;
 
     [Header("Refs")]
     [SerializeField] private GameObject platform;
@@ -56,7 +57,7 @@ public class Platformgenerator : MonoBehaviour
         Debug.Log($"create a platform: {origin.position}");
 
         Vector3 spawnPos = new Vector3(
-            origin.position.x + 12,
+            origin.position.x + xOffset,
             origin.position.y + height - ((yMax - yMin)/2),
             origin.position.z);
 
@@ -68,7 +69,7 @@ public class Platformgenerator : MonoBehaviour
 
     private void ScalePlatform()
     {
-        float adjScrollspeed = scrollspeed * Time.fixedDeltaTime;
+        float adjScrollspeed = scrollspeed * Time.fixedDeltaTime * 1.5f;
         currentPlatformSize += adjScrollspeed ;
 
         Vector3 pos = currentPlatform.transform.position;

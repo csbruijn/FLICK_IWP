@@ -26,8 +26,8 @@ public class PlayerStatusView : MonoBehaviour
             Instantiate(HeartIcon).transform.SetParent(heartContentView.transform,false);
         }
 
-        if (newHP <= 0) PlayerIcon.sprite = IconSpirit; 
-        else PlayerIcon.sprite = IconAlive;
+       // if (newHP <= 0) PlayerIcon.sprite = IconSpirit; 
+       // else PlayerIcon.sprite = IconAlive;
     }
 
     public void initilizeView(PlayerStyleData data)
@@ -36,7 +36,7 @@ public class PlayerStatusView : MonoBehaviour
         IconSpirit = data.spirit;
         playerNumber.text = data.playerID.ToString();
 
-        PlayerIcon.sprite = IconAlive; 
+        PlayerIcon.sprite = data.instrument; 
     }
 }
 [CreateAssetMenu(fileName = "StyleData", menuName = "PlayerStyle", order = 1)]
