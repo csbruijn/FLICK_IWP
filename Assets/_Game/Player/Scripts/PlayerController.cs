@@ -7,10 +7,14 @@ using FMODUnity;
     public class PlayerController : MonoBehaviour, IPlayerController
     {
         [SerializeField] private ScriptableStats _stats;
+        public int playerIndex { get; private set; }
+        public PlayerStatus playerStatus { get; private set; }
 
-        private int playerIndex; 
 
-        private Rigidbody2D _rb;
+
+
+
+    private Rigidbody2D _rb;
         private CapsuleCollider2D _col;
         private FrameInput _frameInput;
         private Vector2 _frameVelocity;
@@ -37,10 +41,18 @@ using FMODUnity;
 
             playerIndex = Gamemanager.instance.GetComponent<PlayerInputManager>().playerCount -1;
             Debug.Log($"player {playerIndex} connected");
-            
-        }
+        //getting player controllers for ghost platform
+            Gamemanager.instance.playerControllers[playerIndex] = this;
+        //telling which player is the other
+            int otherIndex = 1 - playerIndex;
+            PlayerController otherPlayer = Gamemanager.instance.playerControllers[otherIndex];
+            playerStatus = GetComponent<PlayerStatus>();
 
-        private void Update()
+
+
+    }
+
+    private void Update()
         {
             _time += Time.deltaTime;
             GatherInput();
@@ -240,6 +252,9 @@ using FMODUnity;
         }
 
     #endregion
+
+
+
 
     private void ApplyGhostMovement()
     {
