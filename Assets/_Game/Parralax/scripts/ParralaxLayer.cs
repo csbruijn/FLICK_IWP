@@ -61,8 +61,11 @@ public class ParallaxLayer : MonoBehaviour
                         ); // DO SAID THING
 
             // switch out model if its 3D check if script is on the object and then this one checks if it has it
-         
-
+            ModelSwitcher ms = GetComponent<ModelSwitcher>();
+            if (ms != null)
+            {
+              ms.switchOut();
+            }
         }
     }
 }
