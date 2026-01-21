@@ -2,21 +2,43 @@ using UnityEngine;
 
 public class PlatformBehaviour : MonoBehaviour
 {
-    public float minSize;
+    private float minSize;
     private float previousSize= 0f;
-    bool isSizing = true; 
+    bool isSizing = true;
+    private float scrollspeed;
+    private float currentPlatformSize = 0;
+    public void InitializePlatform(float scrollspeed, float minSize )
+    {
+        this.scrollspeed = scrollspeed; 
+        this.minSize = minSize; 
+    }
+
+    public void StopSizing()
+    {
+        isSizing = false;
+    }
 
     private void FixedUpdate()
     {
-        if (!isSizing) return;
-
-        if (transform.localScale.x > previousSize)
+        if (isSizing)
         {
-            previousSize = transform.localScale.x;
-            return;
-        }
+            float adjScrollspeed = scrollspeed * Time.fixedDeltaTime * 1.5f;
+            currentPlatformSize += adjScrollspeed;
 
-        if (transform.localScale.x <= minSize) Destroy(gameObject);
-        else isSizing = false; 
+            Vector3 pos = transform.position;
+            Vector3 scale = transform.localScale;
+
+            scale.x = currentPlatformSize;
+            transform.localScale = scale;
+
+            //move platform to the left (currentScrollSpeed/2)
+            pos.x += adjScrollspeed / 2;
+
+            transform.position = pos;
+        }
+        else if (transform.localScale.x < minSize)
+        {
+            Destroy(gameObject);
+        }
     }
 }
