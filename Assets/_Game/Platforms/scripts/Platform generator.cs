@@ -24,12 +24,12 @@ public class Platformgenerator : MonoBehaviour
     [Header("Refs")]
     [SerializeField] private GameObject platform;
     [SerializeField] private Transform origin, platformsParent;
-    private GameObject currentPlatform; 
+    private Dictionary<int ,GameObject> currentPlatforms; 
 
     private void Start()
     {
         scrollspeed = Gamemanager.instance.currentScrollSpeed;
-
+        currentPlatforms = new();
         // array of all the midi notes we want to play. 
         int range = maxMidi - minMidi;
         increments = (yMax - yMin)/range;
@@ -43,15 +43,11 @@ public class Platformgenerator : MonoBehaviour
             //Debug.Log(myMidiNotes[i]);
         }
     }
-    
-    private void FixedUpdate()
-    {
-        if (creatingPlatform)
-        { ScalePlatform(); }
-    }
 
-    private void CreatePlatform(float height)
+
+    private void CreatePlatform(int note)
     {
+        float height = (note - minMidi) * increments;
         creatingPlatform = true;
         currentPlatformSize = 0f;
         Debug.Log($"create a platform: {origin.position}");
@@ -61,44 +57,38 @@ public class Platformgenerator : MonoBehaviour
             origin.position.y + height - ((yMax - yMin)/2),
             origin.position.z);
 
-        currentPlatform =  Instantiate(platform, spawnPos, Quaternion.identity);
+        GameObject currentPlatform =  Instantiate(platform, spawnPos, Quaternion.identity);
         currentPlatform.transform.SetParent(platformsParent);
-        currentPlatform.GetComponent<PlatformBehaviour>().minSize = minPlatformSize; 
-        ScalePlatform();         
+
+        PlatformBehaviour pb = currentPlatform.GetComponent<PlatformBehaviour>();
+        pb.InitializePlatform(scrollspeed, minPlatformSize); 
+        currentPlatforms.Add(note ,currentPlatform);
     }
 
-    private void ScalePlatform()
-    {
-        float adjScrollspeed = scrollspeed * Time.fixedDeltaTime * 1.5f;
-        currentPlatformSize += adjScrollspeed ;
 
-        Vector3 pos = currentPlatform.transform.position;
-        Vector3 scale = currentPlatform.transform.localScale;
-
-        scale.x = currentPlatformSize;       
-        currentPlatform.transform.localScale = scale;
-
-        //move platform to the left (currentScrollSpeed/2)
-        pos.x += adjScrollspeed / 2;
-
-        currentPlatform.transform.position = pos;
-    }
 
     void NoteOff(MidiChannel channel, int note)
     {
         if (channel != myChannel) return;
         if (note > maxMidi || note < minMidi) return;
 
+        GameObject pb; 
+        currentPlatforms.TryGetValue(note, out pb);
 
-        creatingPlatform = false;
+        pb.GetComponent<PlatformBehaviour>().StopSizing(); 
+        currentPlatforms.Remove(note );
+
+        //creatingPlatform = false;
     }
+
+    
 
     void NoteOn(MidiChannel channel, int note, float velocity)
     {
         if (channel != myChannel) return;
         if (note > maxMidi || note < minMidi) return;
       
-        CreatePlatform((note - minMidi) * increments) ;
+        CreatePlatform(note) ;
     }
 
     void OnEnable()

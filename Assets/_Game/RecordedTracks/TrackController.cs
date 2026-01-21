@@ -1,3 +1,4 @@
+using FMODUnity;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
 using System.Collections.Generic;
@@ -5,6 +6,11 @@ using UnityEngine;
 
 public class TrackController : MonoBehaviour
 {
+    private StudioEventEmitter emitter;
+    [SerializeField, Tooltip("if between 0 and 2 it will select the corresponding track: 0=IDK, 1=TW, 2=GS")] 
+    int track = -1;
+
+
     [Header("MIDI")]
     //[SerializeField] private string midiFileName = "basic_pitch_transcription(1).mid";
 
@@ -16,44 +22,50 @@ public class TrackController : MonoBehaviour
     private int index;
     private bool songPlaying;
 
-    [SerializeField] private string MidifilePath; 
+    [SerializeField] private string IDK_MidifilePath;
+    [SerializeField] private string TW_MidifilePath;
+    [SerializeField] private string GS_MidifilePath;
 
     [Header("Events")]
     [SerializeField] private GameEvent OnSaxNotePlayed;
     [SerializeField] private GameEvent OnSirenWaveAttack;
     [SerializeField] private GameEvent OnSirenSplashAttack;
-    [SerializeField] private GameEvent OnEndNotePlayed; 
+    [SerializeField] private GameEvent OnEndNotePlayed;
 
-
+    [Header("Events")]
+    int song;    
 
     private void Awake()
     {
-        LoadMidi();
-        InitTrack();
+        emitter = GetComponent<StudioEventEmitter>();
+
+        if (track >= 0 && track < 2) song = track; //predetermine for testing purposes
+        else song = ChooseTrack();
+
+        Debug.Log($"chose track no {song}");
+        LoadMidi(song);
+        InitTrack(song);
     }
 
-    private void Start()
+    private int ChooseTrack()
     {
-        //StartSong();
+        return Random.Range(0, 2);
     }
 
-    private void LoadMidi()
+    private void LoadMidi(int song)
     {
-        midiFile = MidiFile.Read(MidifilePath);
-
-
-        //// Place MIDI in StreamingAssets
-        //string path = System.IO.Path.Combine(
-        //    Application.streamingAssetsPath,
-        //    midiFileName
-        //);
-
-        //midiFile = MidiFile.Read(path);
+        switch (song)
+        {
+            case 0: midiFile = MidiFile.Read(IDK_MidifilePath); Debug.Log("MIDI : IDK"); break;
+            case 1: midiFile = MidiFile.Read(TW_MidifilePath); Debug.Log("MIDI : TW"); break;
+            case 2: midiFile = MidiFile.Read(GS_MidifilePath); Debug.Log("MIDI : GS"); break;
+            default: midiFile = MidiFile.Read(IDK_MidifilePath); Debug.LogWarning("track out of bounds; falling back to 0"); break;
+        }
         tempoMap = midiFile.GetTempoMap();
     }
 
-    private void InitTrack()
-    {
+    private void InitTrack(int song)
+    {        
         events = new List<MidiNoteEvent>();
 
         foreach (var note in midiFile.GetNotes())
@@ -71,7 +83,6 @@ public class TrackController : MonoBehaviour
 
         events.Sort((a, b) => a.time.CompareTo(b.time));
 
-        //  NORMALIZE TIME
         double firstNoteTime = events[0].time;
         for (int i = 0; i < events.Count; i++)
         {
@@ -84,21 +95,19 @@ public class TrackController : MonoBehaviour
         }
 
         index = 0;
-
         Debug.Log($"First normalized note at: {events[0].time}");
     }
-
 
     public void StartSong(Component sender, System.Object Data)
     {
         if (songPlaying)
             return;
+        emitter.Play();
+        emitter.SetParameter("Tracks", song);
 
-        Debug.Log("Start Track");
         songStartTime = Time.timeSinceLevelLoad;
         songPlaying = true;
     }
-
 
     private void Update()
     {
@@ -114,23 +123,11 @@ public class TrackController : MonoBehaviour
         }
     }
 
-
     private void OnMidiNote(MidiNoteEvent e)
     {
-        //Debug.Log($"NOTE | t={e.time:F3} | note={e.note} | vel={e.velocity}");
-
-      
         if(e.note > 2) OnSaxNotePlayed.Raise(this, e);
-
-        if (e.note == 2)
-        {
-            OnEndNotePlayed.Raise(this, e);
-            //Debug.Log("finnishNote");
-        }
-
-
+        if (e.note == 2) OnEndNotePlayed.Raise(this, e);   
         if (e.note == 1) OnSirenSplashAttack.Raise(this, e);
-
         if (e.note == 0) OnSirenWaveAttack.Raise(this, e);
     }
 }
