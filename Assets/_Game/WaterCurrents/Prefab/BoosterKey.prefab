@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PianoKeyBooster
   myChannel: 0
   myNote: 60
-  BoostStrength: 90
+  BoostStrength: 10
   ActiveDelay: 0.5
   extraTime: 0.3
   myColor: {r: 1, g: 1, b: 1, a: 1}

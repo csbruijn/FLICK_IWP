@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour, IPlayerController
 
     private float _time;
 
+    private float previousTimeInAirBoost;
+    private float TimeInAirBoost = 1;
+    private bool HasAddedBoost = false;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -46,15 +50,17 @@ public class PlayerController : MonoBehaviour, IPlayerController
         GatherInput();
     }
 
-    private float previousTimeInAirBoost; 
+
+
 
     private void LateUpdate()
     {
         jumpInput = false;
-        
-        if(previousTimeInAirBoost == TimeInAirBoost){
-            Debug.Log("decay airtime"); TimeInAirBoost -= Time.deltaTime;
-        }
+       
+        if(previousTimeInAirBoost == TimeInAirBoost)
+            if (TimeInAirBoost > 1)
+                TimeInAirBoost -= Time.deltaTime;
+
 
         HasAddedBoost = false;
 
@@ -139,8 +145,7 @@ public class PlayerController : MonoBehaviour, IPlayerController
                 _stats.GrounderDistance,
                 ~_stats.PlayerLayer
             );
-            ScrollerPlatform platform = hit.collider.GetComponent<ScrollerPlatform>();
-                if (platform != null) { transform.SetParent(hit.transform); }
+            
         }
 
         bool ceilingHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance, ~_stats.PlayerLayer);
@@ -239,8 +244,6 @@ public class PlayerController : MonoBehaviour, IPlayerController
         }
     }
 
-    private float TimeInAirBoost = 0f;
-    private bool HasAddedBoost = false; 
 
     public void ApplyAirBoost(float strength)
     {
