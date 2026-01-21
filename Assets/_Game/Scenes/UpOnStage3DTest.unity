@@ -1166,6 +1166,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrackManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6668228500259573520, guid: 4182e25448b0e3e4d9403ced86ca4252, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8004637363737797034, guid: 4182e25448b0e3e4d9403ced86ca4252, type: 3}
+      propertyPath: Params.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8004637363737797034, guid: 4182e25448b0e3e4d9403ced86ca4252, type: 3}
+      propertyPath: Params.Array.data[0].Name
+      value: Tracks
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2337,10 +2349,6 @@ PrefabInstance:
       propertyPath: playerUIContent
       value: 
       objectReference: {fileID: 921561644}
-    - target: {fileID: 1655972927430546115, guid: 4fc7ef1bf9c8b8243a3705a6ab20874a, type: 3}
-      propertyPath: m_MaxPlayerCount
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4151848066907466395, guid: 4fc7ef1bf9c8b8243a3705a6ab20874a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15
