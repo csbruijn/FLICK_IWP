@@ -2149,10 +2149,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9073657876681081880}
     - target: {fileID: 7248022408201706359, guid: 39e3418d6b9e6b64e982eff22394e99a, type: 3}
-      propertyPath: myChannel
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7248022408201706359, guid: 39e3418d6b9e6b64e982eff22394e99a, type: 3}
       propertyPath: platformsParent
       value: 
       objectReference: {fileID: 1917791721}
@@ -2331,17 +2327,9 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 1171093735794423996, guid: 4fc7ef1bf9c8b8243a3705a6ab20874a, type: 3}
-      propertyPath: notesToFullBar
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1171093735794423996, guid: 4fc7ef1bf9c8b8243a3705a6ab20874a, type: 3}
       propertyPath: playerUIContent
       value: 
       objectReference: {fileID: 921561644}
-    - target: {fileID: 1655972927430546115, guid: 4fc7ef1bf9c8b8243a3705a6ab20874a, type: 3}
-      propertyPath: m_MaxPlayerCount
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4151848066907466395, guid: 4fc7ef1bf9c8b8243a3705a6ab20874a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15
@@ -2455,21 +2443,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4541692561365466482, guid: d96e30bb180579748a569d42f2b0f1b3, type: 3}
-      propertyPath: yMax
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4541692561365466482, guid: d96e30bb180579748a569d42f2b0f1b3, type: 3}
-      propertyPath: yMin
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4541692561365466482, guid: d96e30bb180579748a569d42f2b0f1b3, type: 3}
       propertyPath: origin
       value: 
       objectReference: {fileID: 9073657876681081880}
-    - target: {fileID: 4541692561365466482, guid: d96e30bb180579748a569d42f2b0f1b3, type: 3}
-      propertyPath: xOffset
-      value: 14
-      objectReference: {fileID: 0}
     - target: {fileID: 4541692561365466482, guid: d96e30bb180579748a569d42f2b0f1b3, type: 3}
       propertyPath: platformsParent
       value: 
@@ -2584,7 +2560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1595307089816228972, guid: a86d8695452b60643bda21ce9385e38d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.1
+      value: -1.81
       objectReference: {fileID: 0}
     - target: {fileID: 1595307089816228972, guid: a86d8695452b60643bda21ce9385e38d, type: 3}
       propertyPath: m_LocalPosition.z

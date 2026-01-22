@@ -15,4 +15,4 @@ MonoBehaviour:
   playerID: 0
   alive: {fileID: 21300000, guid: c868e91e259b0d24092f9d2fb46c4899, type: 3}
   spirit: {fileID: 1709495780, guid: ca801818cdc03e140ab6be99f79f74e7, type: 3}
-  instrument: {fileID: 0}
+  instrument: {fileID: 21300000, guid: 46d0d1acd2cb7e24d9c2c1ea9217883a, type: 3}

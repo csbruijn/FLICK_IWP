@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayData
   m_EditorClassIdentifier: Assembly-CSharp::PlayData
   GameWon: 0
-  outcome: 2
-  timeToCompletion: 0
+  timeToCompletion: 28.212616
+  NotesCollected: 1

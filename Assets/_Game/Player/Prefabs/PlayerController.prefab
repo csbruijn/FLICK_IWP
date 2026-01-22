@@ -5020,7 +5020,7 @@ MonoBehaviour:
   playerStatusViewPrefab: {fileID: 4254418689079447965, guid: f16240a0a6acdce4a8743fae508df648, type: 3}
   styles:
   - {fileID: 11400000, guid: e40c679bdc2539a4c971ba2ff0433c98, type: 2}
-  - {fileID: 11400000, guid: dedb3f7b29ac0ee44aeaaa7f643cffc9, type: 2}
+  - {fileID: 11400000, guid: 080010d4b6ff64a4ea1e6fb6cd03b5d8, type: 2}
 --- !u!114 &1544650614272011792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5148,8 +5148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa2159a46e89974abf9000eaace5d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  ghostPlatform: {fileID: 1108934477895804944}
-  activationDistance: 3
 --- !u!1 &1650304461671794697
 GameObject:
   m_ObjectHideFlags: 0

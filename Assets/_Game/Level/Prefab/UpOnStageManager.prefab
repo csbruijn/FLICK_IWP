@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1171093735794423996}
   - component: {fileID: 1655972927430546115}
   - component: {fileID: 9072673479517291353}
+  - component: {fileID: 5977800045879439007}
   m_Layer: 0
   m_Name: UpOnStageManager
   m_TagString: Untagged
@@ -48,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gamemanager
   startScrollSpeed: 1.5
   startTime: 10
-  notesToFullBar: 10
+  notesToFullBar: 15
   OnGameOVer: {fileID: 11400000, guid: bbeecbfe7e4d88844954fe1ff49a015d, type: 2}
   OnGameStarted: {fileID: 11400000, guid: f286c16b9fdd395439ace091de727f0d, type: 2}
   onCountDownChanged: {fileID: 11400000, guid: d52ba0d322a022143b528436172762af, type: 2}
@@ -117,6 +118,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Gamemanager, Assembly-CSharp
         m_MethodName: OnGameFinish
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5977800045879439007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551462852805061188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33af63db64899a4e9c782559f665080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
+  gameEvent: {fileID: 11400000, guid: 3586fcae62b373a4a9239b38572365a8, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1171093735794423996}
+        m_TargetAssemblyTypeName: Gamemanager, Assembly-CSharp
+        m_MethodName: OnNoteCollected
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -25,9 +25,12 @@ public class PianoKeyBooster : MonoBehaviour
     [SerializeField]private GravityWell myGravityWell;
     [SerializeField] private  FountainController myFountainController;
 
+    [SerializeField] private float maxResource = 1f;
+    private float resource; 
 
     private void Awake()
     {
+        resource = maxResource; 
         mSP = GetComponent<SpriteRenderer>();
         mSP.color = myColor;
         //myGravityWell = GetComponentInChildren<GravityWell>();
@@ -38,10 +41,16 @@ public class PianoKeyBooster : MonoBehaviour
 
     private void Update()
     {
-        if (noteIsOn)
+
+        if (noteIsOn && resource > 0)
         {
+            resource -= Time.deltaTime;
             if (ActiveTime == 0f) ActiveTime += ActiveDelay+extraTime; 
             ActiveTime += Time.deltaTime;
+        }
+        else if (!noteIsOn && resource < maxResource)
+        {
+            resource += Time.deltaTime/2;
         }
 
         if (ActiveTime > 0) ActiveTime -= Time.deltaTime;

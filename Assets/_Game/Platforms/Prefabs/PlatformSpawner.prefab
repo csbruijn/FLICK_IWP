@@ -86,3 +86,4 @@ MonoBehaviour:
   platform: {fileID: 3428730236690224028, guid: cb65f0fc4c1d12940bf8a5ec8d05c6ac, type: 3}
   origin: {fileID: 0}
   platformsParent: {fileID: 0}
+  maxResource: 1

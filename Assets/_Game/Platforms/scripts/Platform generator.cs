@@ -10,7 +10,6 @@ public class Platformgenerator : MonoBehaviour
     [Header("midi setup")]
     [SerializeField] MidiChannel myChannel;
     [SerializeField] private int maxMidi =0, minMidi = 127;
-    private int[] myMidiNotes;
 
     [Header("Spawn setup")]
     [SerializeField] private float yMax;
@@ -24,7 +23,39 @@ public class Platformgenerator : MonoBehaviour
     [Header("Refs")]
     [SerializeField] private GameObject platform;
     [SerializeField] private Transform origin, platformsParent;
-    private Dictionary<int ,GameObject> currentPlatforms; 
+    private Dictionary<int ,GameObject> currentPlatforms =new();
+
+
+    [SerializeField] private float maxResource = 1f;
+    private float resource;
+
+    private Dictionary<int, float> myMidiNotes;
+    private void Update()
+    {
+        for (int midi = minMidi; midi <= maxMidi; midi++)
+        {
+            float r;
+                myMidiNotes.TryGetValue(midi, out r);
+            
+            if (r > 0f && currentPlatforms.ContainsKey(midi))
+            {
+                r -= Time.deltaTime;
+
+                if (r <= 0f)
+                {
+                    r = 0f;
+                    NoteOff(myChannel, midi);
+                }
+            }
+            else if (r < maxResource) 
+            {
+                r += Time.deltaTime * 0.5f;
+            }
+
+            myMidiNotes[midi] = Mathf.Clamp(r, 0f, maxResource);
+        }
+    }
+
 
     private void Start()
     {
@@ -34,16 +65,16 @@ public class Platformgenerator : MonoBehaviour
         int range = maxMidi - minMidi;
         increments = (yMax - yMin)/range;
         Debug.Log(increments);
+        resource = maxResource; 
 
-        myMidiNotes = new int[range];
+        myMidiNotes = new Dictionary<int, float>();
 
         for (int i = 0; i < range; i++)
         {
-            myMidiNotes[i] = minMidi + i;
+            myMidiNotes.Add(i+minMidi, resource); 
             //Debug.Log(myMidiNotes[i]);
         }
     }
-
 
     private void CreatePlatform(int note)
     {
@@ -66,28 +97,31 @@ public class Platformgenerator : MonoBehaviour
     }
 
 
-
     void NoteOff(MidiChannel channel, int note)
     {
         if (channel != myChannel) return;
-        if (note > maxMidi || note < minMidi) return;
+        if (note < minMidi || note > maxMidi) return;
 
-        GameObject pb; 
-        currentPlatforms.TryGetValue(note, out pb);
+        if (!currentPlatforms.TryGetValue(note, out GameObject platform))
+            return;
 
-        pb.GetComponent<PlatformBehaviour>().StopSizing(); 
-        currentPlatforms.Remove(note );
-
-        //creatingPlatform = false;
+        platform.GetComponent<PlatformBehaviour>()?.StopSizing();
+        currentPlatforms.Remove(note);
     }
 
-    
+
+
 
     void NoteOn(MidiChannel channel, int note, float velocity)
     {
+        if (!myMidiNotes.ContainsKey(note)) return;
+
         if (channel != myChannel) return;
         if (note > maxMidi || note < minMidi) return;
-      
+        float r;
+        myMidiNotes.TryGetValue(note, out r);
+        if (r <= 0.1) return; 
+
         CreatePlatform(note) ;
     }
 
