@@ -40,7 +40,7 @@ public class WaveSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         
-        // fallback so you don’t break anything if you forget to assign it
+        // failsafe so nothing breaks if nothing is assigned in the inspector 
         GameObject prefabToUse = (waveUpPrefab != null) ? waveUpPrefab : wavePrefab;
 
         for (int i = 0; i < waveCount; i++)
@@ -53,8 +53,8 @@ public class WaveSpawner : MonoBehaviour
                 Quaternion.identity
             );
 
-            // If this prefab is your new water splash spawner, it won’t need WaveMoverUp.
-            // So only add WaveMoverUp if you're still using the old prefab.
+            // if this is a new splash spawner prefab, no need to add WaveMeverUp
+            
             if (prefabToUse == wavePrefab)
             {
                 WaveMoverUp mover = wave.AddComponent<WaveMoverUp>();
