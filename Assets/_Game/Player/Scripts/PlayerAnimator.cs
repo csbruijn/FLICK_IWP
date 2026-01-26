@@ -10,8 +10,6 @@ using UnityEngine;
 
         [SerializeField] private SpriteRenderer _sprite;
 
-        [Header("Settings")] [SerializeField, Range(1f, 3f)]
-        private float _maxIdleSpeed = 2;
 
         [SerializeField] private float _maxTilt = 5;
         [SerializeField] private float _tiltSpeed = 20;
@@ -28,6 +26,7 @@ using UnityEngine;
         private IPlayerController _player;
         private bool _grounded;
         private ParticleSystem.MinMaxGradient _currentGradient;
+
 
         private void Awake()
         {
@@ -59,7 +58,7 @@ using UnityEngine;
 
             HandleSpriteFlip();
 
-            HandleIdleSpeed();
+            HandleRunning();
 
             HandleCharacterTilt();
         }
@@ -69,11 +68,19 @@ using UnityEngine;
             if (_player.FrameInput.x != 0) _sprite.flipX = _player.FrameInput.x < 0;
         }
 
-        private void HandleIdleSpeed()
+        private void HandleRunning()
         {
-            var inputStrength = Mathf.Abs(_player.FrameInput.x);
-            _anim.SetFloat(IdleSpeedKey, Mathf.Lerp(1, _maxIdleSpeed, inputStrength));
-            _moveParticles.transform.localScale = Vector3.MoveTowards(_moveParticles.transform.localScale, Vector3.one * inputStrength, 2 * Time.deltaTime);
+            float inputStrength = Mathf.Abs(_player.FrameInput.x);
+
+            bool isRunning = inputStrength > 0.1f && _grounded;
+            _anim.SetBool(IsRunningKey, isRunning);
+
+            _moveParticles.transform.localScale =
+                Vector3.MoveTowards(
+                    _moveParticles.transform.localScale,
+                    Vector3.one * inputStrength,
+                    2 * Time.deltaTime
+                );
         }
 
         private void HandleCharacterTilt()
@@ -82,7 +89,19 @@ using UnityEngine;
             _anim.transform.up = Vector3.RotateTowards(_anim.transform.up, runningTilt * Vector2.up, _tiltSpeed * Time.deltaTime, 0f);
         }
 
-        private void OnJumped()
+        public void OnDeath()
+        {
+            _anim.SetTrigger(IsDead);
+            _anim.ResetTrigger(IsRevived);
+        }
+
+        public void OnRevive()
+        {
+            _anim.SetTrigger(IsRevived);
+            _anim.ResetTrigger(IsDead);
+        }
+
+    private void OnJumped()
         {
             _anim.SetTrigger(JumpKey);
             _anim.ResetTrigger(GroundedKey);
@@ -137,4 +156,10 @@ using UnityEngine;
         private static readonly int GroundedKey = Animator.StringToHash("Grounded");
         private static readonly int IdleSpeedKey = Animator.StringToHash("IdleSpeed");
         private static readonly int JumpKey = Animator.StringToHash("Jump");
-    }
+        private static readonly int IsRunningKey = Animator.StringToHash("IsRunning");
+        private static readonly int IsDead = Animator.StringToHash("Death");
+        private static readonly int IsRevived = Animator.StringToHash("Revive");
+
+
+
+}

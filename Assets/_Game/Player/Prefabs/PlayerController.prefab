@@ -24792,7 +24792,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _anim: {fileID: 2969068313154050966}
   _sprite: {fileID: 2969068313154050967}
-  _maxIdleSpeed: 2
   _maxTilt: 5
   _tiltSpeed: 20
   _jumpParticles: {fileID: 2969068312619346371}
@@ -44381,8 +44380,8 @@ Transform:
   m_GameObject: {fileID: 2969068313154050964}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.69, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2969068311962969430}
@@ -64505,7 +64504,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _anim: {fileID: 5986302700935213449}
   _sprite: {fileID: 6688495682639076812}
-  _maxIdleSpeed: 2
   _maxTilt: 5
   _tiltSpeed: 20
   _jumpParticles: {fileID: 1714928066601536802}
