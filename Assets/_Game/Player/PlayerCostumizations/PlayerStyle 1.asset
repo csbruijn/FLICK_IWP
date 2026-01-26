@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c297c5830b1a0cd4aa061e763ec2648f, type: 3}
+  m_Name: PlayerStyle 1
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStyleData
+  playerID: 0
+  alive: {fileID: 21300000, guid: 443dbfdf14ad0cf4fa297088a596e791, type: 3}
+  spirit: {fileID: 1709495780, guid: ca801818cdc03e140ab6be99f79f74e7, type: 3}
+  instrument: {fileID: 21300000, guid: dea517074bb7d7446a5309ee0bc8f355, type: 3}

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5799940354767609379}
   - component: {fileID: 4974653552177095110}
   - component: {fileID: 7143196909134765954}
-  - component: {fileID: 3635700702450534687}
   m_Layer: 0
   m_Name: Wave Spawner
   m_TagString: Untagged
@@ -52,8 +51,8 @@ MonoBehaviour:
   waveCount: 2
   horizontalSpacing: 3.5
   verticalSpacing: 0.5
-  waveDelay: 1
-  SplashDelay: 5
+  waveDelay: 1.4
+  SplashDelay: 1.6
   spawnPoint: {fileID: 2094571501888297275}
   waveSpeed: 0.2
   lifeTime: 3
@@ -104,46 +103,6 @@ MonoBehaviour:
       - m_Target: {fileID: 5799940354767609379}
         m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
         m_MethodName: SpawnWaveAttack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &3635700702450534687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4799885330636042819}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f33af63db64899a4e9c782559f665080, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
-  gameEvent: {fileID: 11400000, guid: f286c16b9fdd395439ace091de727f0d, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5799940354767609379}
-        m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
-        m_MethodName: SpawnWaveAttack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5799940354767609379}
-        m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
-        m_MethodName: SpawnWaveAttackUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

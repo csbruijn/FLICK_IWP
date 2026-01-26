@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PianoKeyBooster
   myChannel: 0
   myNote: 60
-  BoostStrength: 8
+  BoostStrength: 10
   ActiveDelay: 0.5
   extraTime: 0.3
   myColor: {r: 1, g: 1, b: 1, a: 1}
@@ -150,6 +150,7 @@ MonoBehaviour:
   fullHeight: 8
   myGravityWell: {fileID: 4718941395159768354}
   myFountainController: {fileID: 3399896672836712575}
+  maxResource: 1
 --- !u!212 &2998510198438956009
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -196,7 +197,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 38f0b4811be7cda469d8899b3f951697, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

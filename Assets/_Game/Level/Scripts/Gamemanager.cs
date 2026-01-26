@@ -31,6 +31,10 @@ public class Gamemanager : MonoBehaviour
     public int playersConnected { get; private set; } = 0;  
     public PlayerStatus[] players { get; private set; }
 
+    //this is for ghost platform generation (needed to get components so playerstatus wasn't enough)
+    public PlayerController[] playerControllers { get; private set; }
+
+
     [Header("GameEvents")]
     [SerializeField] private GameEvent OnGameOVer;
     [SerializeField] private GameEvent OnGameStarted;
@@ -117,6 +121,9 @@ public class Gamemanager : MonoBehaviour
     {
         totalPlayers = GetComponent<UnityEngine.InputSystem.PlayerInputManager>().maxPlayerCount;
         players = new PlayerStatus[totalPlayers];
+        // again addition for ghost platform
+        playerControllers = new PlayerController[totalPlayers];
+
     }
 
     public void AddPlayerToList(PlayerStatus player)

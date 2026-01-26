@@ -48,9 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NotesSpawner
   maxMidi: 70
   minMidi: 30
-  yMax: 15
-  yMin: -5
-  xOffset: 11
+  yMax: 13
+  yMin: 0
+  xOffset: 14
   prefab: {fileID: 2850083881158299210, guid: 56fd26e2cb0d9cb4e8a4f119b95a4aa2, type: 3}
   origin: {fileID: 0}
   platformsParent: {fileID: 0}

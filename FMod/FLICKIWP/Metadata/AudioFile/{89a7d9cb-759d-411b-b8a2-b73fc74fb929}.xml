@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{89a7d9cb-759d-411b-b8a2-b73fc74fb929}">
 		<property name="assetPath">
-			<value>I dont know short siren cymball roll.wav</value>
+			<value>IDK old.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

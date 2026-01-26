@@ -10,7 +10,6 @@ public class Platformgenerator : MonoBehaviour
     [Header("midi setup")]
     [SerializeField] MidiChannel myChannel;
     [SerializeField] private int maxMidi =0, minMidi = 127;
-    private int[] myMidiNotes;
 
     [Header("Spawn setup")]
     [SerializeField] private float yMax;
@@ -24,34 +23,62 @@ public class Platformgenerator : MonoBehaviour
     [Header("Refs")]
     [SerializeField] private GameObject platform;
     [SerializeField] private Transform origin, platformsParent;
-    private GameObject currentPlatform; 
+    private Dictionary<int ,GameObject> currentPlatforms =new();
+
+
+    [SerializeField] private float maxResource = 1f;
+    private float resource;
+
+    private Dictionary<int, float> myMidiNotes;
+    private void Update()
+    {
+        for (int midi = minMidi; midi <= maxMidi; midi++)
+        {
+            float r;
+                myMidiNotes.TryGetValue(midi, out r);
+            
+            if (r > 0f && currentPlatforms.ContainsKey(midi))
+            {
+                r -= Time.deltaTime;
+
+                if (r <= 0f)
+                {
+                    r = 0f;
+                    NoteOff(myChannel, midi);
+                }
+            }
+            else if (r < maxResource) 
+            {
+                r += Time.deltaTime * 0.5f;
+            }
+
+            myMidiNotes[midi] = Mathf.Clamp(r, 0f, maxResource);
+        }
+    }
+
 
     private void Start()
     {
         scrollspeed = Gamemanager.instance.currentScrollSpeed;
-
+        currentPlatforms = new();
         // array of all the midi notes we want to play. 
         int range = maxMidi - minMidi;
         increments = (yMax - yMin)/range;
         Debug.Log(increments);
+        resource = maxResource; 
 
-        myMidiNotes = new int[range];
+        myMidiNotes = new Dictionary<int, float>();
 
         for (int i = 0; i < range; i++)
         {
-            myMidiNotes[i] = minMidi + i;
+            myMidiNotes.Add(i+minMidi, resource); 
             //Debug.Log(myMidiNotes[i]);
         }
     }
-    
-    private void FixedUpdate()
-    {
-        if (creatingPlatform)
-        { ScalePlatform(); }
-    }
 
-    private void CreatePlatform(float height)
+    private void CreatePlatform(int note)
     {
+        float height = (note - minMidi) * increments;
         creatingPlatform = true;
         currentPlatformSize = 0f;
         Debug.Log($"create a platform: {origin.position}");
@@ -61,44 +88,41 @@ public class Platformgenerator : MonoBehaviour
             origin.position.y + height - ((yMax - yMin)/2),
             origin.position.z);
 
-        currentPlatform =  Instantiate(platform, spawnPos, Quaternion.identity);
+        GameObject currentPlatform =  Instantiate(platform, spawnPos, Quaternion.identity);
         currentPlatform.transform.SetParent(platformsParent);
-        currentPlatform.GetComponent<PlatformBehaviour>().minSize = minPlatformSize; 
-        ScalePlatform();         
+
+        PlatformBehaviour pb = currentPlatform.GetComponent<PlatformBehaviour>();
+        pb.InitializePlatform(scrollspeed, minPlatformSize); 
+        currentPlatforms.Add(note ,currentPlatform);
     }
 
-    private void ScalePlatform()
-    {
-        float adjScrollspeed = scrollspeed * Time.fixedDeltaTime * 1.5f;
-        currentPlatformSize += adjScrollspeed ;
-
-        Vector3 pos = currentPlatform.transform.position;
-        Vector3 scale = currentPlatform.transform.localScale;
-
-        scale.x = currentPlatformSize;       
-        currentPlatform.transform.localScale = scale;
-
-        //move platform to the left (currentScrollSpeed/2)
-        pos.x += adjScrollspeed / 2;
-
-        currentPlatform.transform.position = pos;
-    }
 
     void NoteOff(MidiChannel channel, int note)
     {
         if (channel != myChannel) return;
-        if (note > maxMidi || note < minMidi) return;
+        if (note < minMidi || note > maxMidi) return;
 
+        if (!currentPlatforms.TryGetValue(note, out GameObject platform))
+            return;
 
-        creatingPlatform = false;
+        platform.GetComponent<PlatformBehaviour>()?.StopSizing();
+        currentPlatforms.Remove(note);
     }
+
+
+
 
     void NoteOn(MidiChannel channel, int note, float velocity)
     {
+        if (!myMidiNotes.ContainsKey(note)) return;
+
         if (channel != myChannel) return;
         if (note > maxMidi || note < minMidi) return;
-      
-        CreatePlatform((note - minMidi) * increments) ;
+        float r;
+        myMidiNotes.TryGetValue(note, out r);
+        if (r <= 0.1) return; 
+
+        CreatePlatform(note) ;
     }
 
     void OnEnable()
