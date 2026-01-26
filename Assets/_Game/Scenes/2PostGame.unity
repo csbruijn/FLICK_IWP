@@ -1219,6 +1219,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelsManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5663272262324663916, guid: 47ccfc784f910ab448fc3b7b175b4738, type: 3}
+      propertyPath: fadeOverlay
+      value: 
+      objectReference: {fileID: 5244587109581349001, guid: 075ae57aa2472b54d9ea5a2c579bd697, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
