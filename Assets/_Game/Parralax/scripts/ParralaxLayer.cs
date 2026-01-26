@@ -52,13 +52,20 @@ public class ParallaxLayer : MonoBehaviour
     {
         if (!AutoRepeat) return;
 
-        if (transform.position.x < repeater.transform.position.x)
+        if (transform.position.x < repeater.transform.position.x) // if behind repeater go to respawnPoint
         {
             transform.position = new Vector3(
                         respawnPoint.transform.position.x,
                         transform.position.y,
                         transform.position.z
-                        );
+                        ); // DO SAID THING
+
+            // switch out model if its 3D check if script is on the object and then this one checks if it has it
+            ModelSwitcher ms = GetComponent<ModelSwitcher>();
+            if (ms != null)
+            {
+              ms.switchOut();
+            }
         }
     }
 }
