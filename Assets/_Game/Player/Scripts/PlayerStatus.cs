@@ -48,10 +48,6 @@ public class PlayerStatus : MonoBehaviour
         HP--;
         PlayerStatusView.UpdateHPView(HP);
         if (HP <= 0 ) KillPlayer();
-        else
-        {
-            GetComponent<PlayerHit>().RegisterHit();
-        }
     }
 
     public void HealPlayer()
@@ -63,9 +59,7 @@ public class PlayerStatus : MonoBehaviour
     public void KillPlayer()
     {
         isDead = true;
-        GetComponentInChildren<PlayerAnimator>().OnDeath(); 
-
-        //GetComponent<PlayerStyle>().SetSpiritStyle();
+        GetComponent<PlayerStyle>().SetSpiritStyle();
 
     }
 
@@ -73,10 +67,7 @@ public class PlayerStatus : MonoBehaviour
     { 
         isDead = false;
         HP = 2;
-
-        GetComponentInChildren<PlayerAnimator>().OnRevive();
-
-        //GetComponent<PlayerStyle>().SetAliveStyle();
+        GetComponent<PlayerStyle>().SetAliveStyle();
         PlayerStatusView.UpdateHPView(HP);
         // put player in position of the otherplayer 1 sec ago? 
     }
