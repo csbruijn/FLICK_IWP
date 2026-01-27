@@ -49,13 +49,13 @@ MonoBehaviour:
   wavePrefab: {fileID: 4103990700509526578, guid: b56ae78ccf2c4584a8c0e7f9dd7613e2, type: 3}
   waveUpPrefab: {fileID: 4103990700509526578, guid: e8829a3f40b74c848ae75854094ea74e, type: 3}
   waveCount: 2
-  horizontalSpacing: 3.5
+  horizontalSpacing: 3
   verticalSpacing: 0.5
   waveDelay: 1.4
   SplashDelay: 1.6
   spawnPoint: {fileID: 2094571501888297275}
-  waveSpeed: 0.2
-  lifeTime: 3
+  waveSpeed: 0.15
+  lifeTime: 6
 --- !u!114 &4974653552177095110
 MonoBehaviour:
   m_ObjectHideFlags: 0

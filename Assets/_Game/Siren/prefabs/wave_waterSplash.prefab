@@ -48,7 +48,7 @@ MonoBehaviour:
   dropletCount: 24
   timeBetween: 0.01
   minAngle: 90
-  maxAngle: 70
+  maxAngle: 60
   minSpeed: 12
   maxSpeed: 16
   destroySelfAfter: 2
