@@ -25,7 +25,7 @@ public class GameOutComeView : MonoBehaviour
             "Time survived: " + 
             Mathf.RoundToInt(playData.timeToCompletion).ToString();
         NotesCollected.text = 
-            "Notes Collected " + 
+            "Notes collected: " + 
             playData.NotesCollected.ToString();
 
 
