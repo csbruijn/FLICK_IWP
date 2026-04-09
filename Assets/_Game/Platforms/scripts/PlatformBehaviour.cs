@@ -7,6 +7,8 @@ public class PlatformBehaviour : MonoBehaviour
     bool isSizing = true;
     private float scrollspeed;
     private float currentPlatformSize = 0;
+
+    [SerializeField] private float growSpeed = 2f;
     public void InitializePlatform(float scrollspeed, float minSize )
     {
         this.scrollspeed = scrollspeed; 
@@ -22,7 +24,7 @@ public class PlatformBehaviour : MonoBehaviour
     {
         if (isSizing)
         {
-            float adjScrollspeed = scrollspeed * Time.fixedDeltaTime * 1.5f;
+            float adjScrollspeed = scrollspeed * Time.fixedDeltaTime * growSpeed;
             currentPlatformSize += adjScrollspeed;
 
             Vector3 pos = transform.position;

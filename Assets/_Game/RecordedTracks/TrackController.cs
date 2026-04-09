@@ -39,7 +39,7 @@ public class TrackController : MonoBehaviour
     {
         emitter = GetComponent<StudioEventEmitter>();
 
-        if (track >= 0 && track < 2) song = track; //predetermine for testing purposes
+        if (track >= 0 && track <= 2) song = track; //predetermine for testing purposes
         else song = ChooseTrack();
 
         Debug.Log($"chose track no {song}");
@@ -49,7 +49,8 @@ public class TrackController : MonoBehaviour
 
     private int ChooseTrack()
     {
-        return Random.Range(0, 2);
+        int random; 
+        return Random.Range(0, 3);
     }
 
     private void LoadMidi(int song)

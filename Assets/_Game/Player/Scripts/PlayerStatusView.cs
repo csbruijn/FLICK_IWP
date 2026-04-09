@@ -26,8 +26,6 @@ public class PlayerStatusView : MonoBehaviour
             Instantiate(HeartIcon).transform.SetParent(heartContentView.transform,false);
         }
 
-       // if (newHP <= 0) PlayerIcon.sprite = IconSpirit; 
-       // else PlayerIcon.sprite = IconAlive;
     }
 
     public void initilizeView(PlayerStyleData data)

@@ -181,11 +181,11 @@ MonoBehaviour:
   OnNotePickedUp: {fileID: 11400000, guid: 3586fcae62b373a4a9239b38572365a8, type: 2}
   pickUpEvent:
     Guid:
-      Data1: -1037686431
-      Data2: 1250184155
-      Data3: -217289830
-      Data4: 1862025735
-    Path: event:/Note Pick Up
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &8129757445043186578
 GameObject:
   m_ObjectHideFlags: 0
